@@ -8,10 +8,11 @@ import Logo from '.'
 
 describe('<Logo />', () => {
   it('should render a white label by default', () => {
-    renderWithTheme(<Logo />)
+    const { container } = renderWithTheme(<Logo />)
     expect(screen.getByLabelText(/won games/i).parentElement).toHaveStyle({
       color: theme.colors.white
     })
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render a black when color is passed', () => {
