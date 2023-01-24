@@ -1,8 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Fragment } from 'react'
 
-import 'jest-styled-components'
-
 import MediaMatch from '.'
 
 describe('<MediaMatch />', () => {
