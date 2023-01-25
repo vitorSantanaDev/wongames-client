@@ -36,7 +36,64 @@ describe('<Heading />', () => {
     renderWithTheme(<Heading lineLeft>Won Games</Heading>)
     expect(screen.getByRole('heading', { name: /won games/i })).toHaveStyle({
       'padding-left': `${theme.spacings.xxsmall}`,
-      'border-left': ` 0.7rem solid ${theme.colors.secondary}`
+      'border-left': ` 0.7rem solid ${theme.colors.primary}`
     })
+  })
+
+  it('should render a heading with a small size', () => {
+    renderWithTheme(<Heading size="small">Won Games</Heading>)
+    expect(screen.getByRole('heading', { name: /won games/i })).toHaveStyle({
+      'font-size': `${theme.spacings.xsmall}`
+    })
+
+    expect(screen.getByRole('heading', { name: /won games/i })).toHaveStyleRule(
+      'width',
+      `3rem`,
+      {
+        modifier: '::after'
+      }
+    )
+  })
+
+  it('should render a Heading with a primary line color', () => {
+    renderWithTheme(
+      <Heading lineColor="primary" lineBottom lineLeft>
+        Won Games
+      </Heading>
+    )
+
+    const heading = screen.getByRole('heading', { name: /won games/i })
+    expect(heading).toHaveStyle({
+      'border-left': `0.7rem solid ${theme.colors.primary}`
+    })
+
+    expect(heading).toHaveStyleRule(
+      'border-bottom',
+      `0.5rem solid ${theme.colors.primary}`,
+      {
+        modifier: '::after'
+      }
+    )
+  })
+
+  it('should render a Heading with a secondary line color', () => {
+    renderWithTheme(
+      <Heading lineColor="secondary" lineLeft lineBottom>
+        Won Games
+      </Heading>
+    )
+    const heading = screen.getByRole('heading', { name: /won games/i })
+
+    expect(heading).toHaveStyle({
+      'border-left': `0.7rem solid ${theme.colors.secondary}`
+    })
+
+    expect(heading).toHaveStyleRule(
+      'border-bottom',
+      `0.5rem solid ${theme.colors.secondary}`,
+      {
+        modifier: '::after'
+      }
+    )
   })
 })

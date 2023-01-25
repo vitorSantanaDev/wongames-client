@@ -4,10 +4,18 @@ import { HeadingProps } from './types'
 const Heading = ({
   children,
   color = 'white',
+  size = 'medium',
   lineLeft = false,
-  lineBottom = false
+  lineBottom = false,
+  lineColor = 'primary'
 }: HeadingProps) => (
-  <S.Wrapper lineBottom={lineBottom} lineLeft={lineLeft} color={color}>
+  <S.Wrapper
+    size={size}
+    color={color}
+    lineLeft={lineLeft}
+    lineColor={lineColor}
+    lineBottom={lineBottom}
+  >
     {children}
   </S.Wrapper>
 )
