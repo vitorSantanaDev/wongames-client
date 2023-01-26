@@ -16,26 +16,62 @@ exports[`<Menu /> should render the menu 1`] = `
 .c12 {
   border: none;
   cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   color: #FAFAFA;
   padding: 0.8rem;
   border-radius: 0.4rem;
   background: linear-gradient(180deg,#ff605f 0%,#f062c0 50%);
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 4rem;
   font-size: 1.4rem;
   padding: 0.8rem 3.2rem;
 }
 
+.c12:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
 .c16 {
   border: none;
   cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   color: #FAFAFA;
   padding: 0.8rem;
   border-radius: 0.4rem;
   background: linear-gradient(180deg,#ff605f 0%,#f062c0 50%);
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 5rem;
   font-size: 1.6rem;
   padding: 0.8rem 4.8rem;
   width: 100%;
+}
+
+.c16:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
 .c0 {
