@@ -14,7 +14,9 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "postinstall": "husky install",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
+
   },
   "lint-staged": {
     "src/**/*": [
