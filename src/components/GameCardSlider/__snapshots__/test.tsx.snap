@@ -302,7 +302,7 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
 .c0 .slick-prev,
 .c0 .slick-next {
   display: block;
-  color: #030517;
+  color: #FAFAFA;
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -345,7 +345,7 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
 
 <section
   class="c0"
-  color="black"
+  color="white"
 >
   <section
     class="c1"

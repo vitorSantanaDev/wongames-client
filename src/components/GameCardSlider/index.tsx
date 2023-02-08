@@ -9,7 +9,17 @@ import { GameCardSliderProps } from './types'
 
 import * as S from './styles'
 
-const GameCardSlider = ({ items, color = 'black' }: GameCardSliderProps) => {
+const SlickButtonFix = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  currentSlide,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  slideCount,
+  children,
+  ...props
+}: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+any) => <span {...props}>{children}</span>
+
+const GameCardSlider = ({ items, color = 'white' }: GameCardSliderProps) => {
   const settings: SliderSettings = {
     slidesToShow: 4,
     infinite: false,
@@ -44,8 +54,16 @@ const GameCardSlider = ({ items, color = 'black' }: GameCardSliderProps) => {
         }
       }
     ],
-    nextArrow: <ArrowRight aria-label="next games" />,
-    prevArrow: <ArrowLeft aria-label="previous games" />
+    nextArrow: (
+      <SlickButtonFix>
+        <ArrowRight aria-label="next games" />
+      </SlickButtonFix>
+    ),
+    prevArrow: (
+      <SlickButtonFix>
+        <ArrowLeft aria-label="previous games" />
+      </SlickButtonFix>
+    )
   }
 
   return (
