@@ -30,7 +30,8 @@ export default {
     lightGray: '#EAEAEA',
     gray: '#8F8F8F',
     darkGray: '#2E2F42',
-    lightBg: '#f2f2f2'
+    lightBg: '#f2f2f2',
+    error: '#ff6347'
   },
   spacings: {
     xxsmall: '0.8rem',
