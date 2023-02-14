@@ -4,7 +4,7 @@ import Checkbox from '.'
 import { CheckboxProps } from './types'
 
 export default {
-  title: 'Checkbox',
+  title: 'Form/Checkbox',
   component: Checkbox,
   parameters: {
     layout: 'fullscreen',
