@@ -21,6 +21,9 @@ const wrapperModifiers = {
       font-size: ${theme.font.sizes.xxlarge};
     `}
   `,
+  huge: (theme: DefaultTheme) => css`
+    font-size: ${theme.font.sizes.huge};
+  `,
 
   lineLeft: (theme: DefaultTheme, lineColor: LineColorsTypes) => css`
     padding-left: ${theme.spacings.xxsmall};

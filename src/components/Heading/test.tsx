@@ -43,7 +43,7 @@ describe('<Heading />', () => {
   it('should render a heading with a small size', () => {
     renderWithTheme(<Heading size="small">Won Games</Heading>)
     expect(screen.getByRole('heading', { name: /won games/i })).toHaveStyle({
-      'font-size': `${theme.spacings.xsmall}`
+      'font-size': theme.font.sizes.medium
     })
 
     expect(screen.getByRole('heading', { name: /won games/i })).toHaveStyleRule(
@@ -53,6 +53,14 @@ describe('<Heading />', () => {
         modifier: '::after'
       }
     )
+  })
+
+  it('should render a heading with a huge size', () => {
+    renderWithTheme(<Heading size="huge">Won Games</Heading>)
+
+    expect(screen.getByRole('heading', { name: /won games/i })).toHaveStyle({
+      'font-size': `${theme.font.sizes.huge}`
+    })
   })
 
   it('should render a Heading with a primary line color', () => {
