@@ -13,6 +13,11 @@ describe('<Logo />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
+  it('should render the logo with logoId passed', () => {
+    const { container } = renderWithTheme(<Logo logoId="my_logo_id" />)
+    expect(container.querySelector('#a_my_logo_id')).toBeInTheDocument()
+  })
+
   it('should render a black when color is passed', () => {
     renderWithTheme(<Logo color="black" />)
     expect(screen.getByLabelText(/won games/i).parentElement).toHaveStyle({
