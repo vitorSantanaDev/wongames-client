@@ -1,15 +1,13 @@
 import Menu from 'components/Menu'
 import Footer from 'components/Footer'
-import Heading from 'components/Heading'
-import Highlight from 'components/Highlight'
 import BannerSlider from 'components/BannerSlider'
-import GameCardSlider from 'components/GameCardSlider'
 
 import { Container } from 'components/Container'
 
 import { HomeTemplateProps } from './types'
 
 import * as S from './styles'
+import ShowCase from 'components/ShowCase'
 
 const Home = ({
   banners,
@@ -30,44 +28,23 @@ const Home = ({
           <BannerSlider items={banners} />
         </S.SectionBanner>
       </Container>
-
       <S.SectionNews>
-        <Container>
-          <Heading lineLeft lineColor="secondary">
-            News
-          </Heading>
-
-          <GameCardSlider items={newGames} color="black" />
-        </Container>
+        <ShowCase title="News" games={newGames} />
       </S.SectionNews>
-
-      <Container>
-        <S.SectionMostPopular>
-          <Heading lineLeft lineColor="secondary">
-            Most Popular
-          </Heading>
-          <Highlight {...mostPopularHighlight} />
-          <GameCardSlider color="white" items={mostPopularGames} />
-        </S.SectionMostPopular>
-
-        <S.SectionUpcomming>
-          <Heading lineLeft lineColor="secondary">
-            Upcomming
-          </Heading>
-          <GameCardSlider items={upcommingGames} />
-          <Highlight {...upcommingHighlight} />
-          <GameCardSlider color="white" items={upcommingMoreGames} />
-        </S.SectionUpcomming>
-
-        <S.SectionFreeGames>
-          <Heading lineLeft lineColor="secondary">
-            Free games
-          </Heading>
-          <Highlight {...freeHighlight} />
-          <GameCardSlider color="white" items={freeGames} />
-        </S.SectionFreeGames>
-      </Container>
-
+      <ShowCase
+        title="Most Popular"
+        games={mostPopularGames}
+        highlight={mostPopularHighlight}
+      />
+      <S.SectionUpcomming>
+        <ShowCase title="Upcomming" games={upcommingGames} />
+        <ShowCase highlight={upcommingHighlight} games={upcommingMoreGames} />
+      </S.SectionUpcomming>
+      <ShowCase
+        title="Free Games"
+        highlight={freeHighlight}
+        games={freeGames}
+      />
       <S.SectionFooter>
         <Container>
           <Footer />
