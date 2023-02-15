@@ -113,7 +113,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
     justify-content: space-between;
 
     opacity: ${isOpen ? '1' : '0'};
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -123,6 +123,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
     background-color: ${theme.colors.white};
     pointer-events: ${isOpen ? 'all' : 'none'};
     transition: opacity 0.3s ease-in-out;
+    z-index: ${theme.layers.menu};
 
     > svg {
       top: 0;
