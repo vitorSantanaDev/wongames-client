@@ -74,6 +74,14 @@ exports[`<Menu /> should render the menu 1`] = `
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
+.c1 {
+  display: none;
+}
+
+.c6 {
+  display: none;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -245,14 +253,6 @@ exports[`<Menu /> should render the menu 1`] = `
   transition: transform 0.3s ease-in-out;
 }
 
-.c1 {
-  display: none;
-}
-
-.c6 {
-  display: none;
-}
-
 @media (max-width:768px) {
   .c5 {
     width: 5.8rem;
@@ -270,6 +270,18 @@ exports[`<Menu /> should render the menu 1`] = `
 }
 
 @media (max-width:768px) {
+  .c1 {
+    display: block;
+  }
+}
+
+@media (min-width:768px) {
+  .c6 {
+    display: block;
+  }
+}
+
+@media (max-width:768px) {
   .c4 {
     left: 50%;
     position: absolute;
@@ -282,18 +294,6 @@ exports[`<Menu /> should render the menu 1`] = `
 @media (min-width:768px) {
   .c8 {
     margin-left: 2.4rem;
-  }
-}
-
-@media (max-width:768px) {
-  .c1 {
-    display: block;
-  }
-}
-
-@media (min-width:768px) {
-  .c6 {
-    display: block;
   }
 }
 
@@ -475,13 +475,14 @@ exports[`<Menu /> should render the menu 1`] = `
     <div
       class="c6"
     >
-      <button
+      <a
         class="c12"
+        href="/sign-in"
       >
         <span>
           Sign in
         </span>
-      </button>
+      </a>
     </div>
   </div>
   <nav
@@ -520,19 +521,20 @@ exports[`<Menu /> should render the menu 1`] = `
     <div
       class="c14 c15"
     >
-      <button
+      <a
         class="c16"
+        href="/sign-in"
       >
         <span>
           Log in now
         </span>
-      </button>
+      </a>
       <span>
         or
       </span>
       <a
         class="c17"
-        href="#"
+        href="/sign-up"
         title="Sign Up"
       >
         Sign Up
