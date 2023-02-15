@@ -9,6 +9,11 @@ export const Wrapper = styled.main`
   height: 100vh;
   grid-template-columns: 1fr;
 
+  a {
+    width: fit-content;
+    height: fit-content;
+  }
+
   ${media.greaterThan('medium')`
     grid-template-columns: 1fr 1fr;
   `}
