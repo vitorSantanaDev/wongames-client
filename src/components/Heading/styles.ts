@@ -7,14 +7,13 @@ type WrapperProps = Pick<
   'color' | 'lineBottom' | 'lineLeft' | 'size' | 'lineColor'
 >
 
-const wrapperModifiers = {
+export const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.medium};
     &::after {
       width: 3rem;
     }
   `,
-
   medium: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.xlarge};
     ${media.greaterThan('medium')`
