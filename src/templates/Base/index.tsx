@@ -11,7 +11,7 @@ const Base = ({ children }: BaseProps) => (
     <Container>
       <Menu />
     </Container>
-    {children}
+    <S.Content>{children}</S.Content>
     <S.SectionFooter>
       <Container>
         <Footer />
