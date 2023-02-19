@@ -1,3 +1,5 @@
+import { TextContentProps } from './types'
+
 export default {
   title: 'Description',
   content: `<h1>Heading</h1>
@@ -37,4 +39,4 @@ export default {
   quam illum. Fugiat consectetur assumenda in, vitae nemo, eaque quia
   numquam ad perspiciatis doloribus error eveniet quo officia?
 </p>`
-}
+} as TextContentProps
