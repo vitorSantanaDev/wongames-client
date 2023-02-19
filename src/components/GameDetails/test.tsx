@@ -62,6 +62,20 @@ describe('<GameDetails />', () => {
     expect(dateText).toBeInTheDocument()
   })
 
+  it('should render the developer', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    const developer = screen.getByText(props.developer)
+    expect(developer).toBeInTheDocument()
+  })
+
+  it('should render the publisher', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    const publisher = screen.getByText(props.publisher)
+    expect(publisher).toBeInTheDocument()
+  })
+
   it('should render free rating when BR0', () => {
     renderWithTheme(<GameDetails {...props} />)
 
