@@ -93,6 +93,7 @@ exports[`<Menu /> should render the menu 1`] = `
   align-items: center;
   position: relative;
   padding: 2.4rem 0;
+  z-index: 20;
 }
 
 .c2 {
