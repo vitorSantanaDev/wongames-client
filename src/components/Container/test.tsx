@@ -19,6 +19,7 @@ describe('<Container />', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
         padding-left: calc(3.2rem / 2);
