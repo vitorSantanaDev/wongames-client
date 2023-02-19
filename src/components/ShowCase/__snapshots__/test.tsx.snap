@@ -408,6 +408,7 @@ exports[`<ShowCase /> should render full ShowCase 1`] = `
 }
 
 .c0 {
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: calc(3.2rem / 2);
