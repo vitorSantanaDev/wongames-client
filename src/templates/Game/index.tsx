@@ -7,6 +7,8 @@ import MediaMatch from 'components/MediaMatch'
 import TextContent from 'components/TextContent'
 import GameDetails from 'components/GameDetails'
 
+import { Divider } from 'components/Divider'
+
 import { GameProps } from './types'
 
 import * as S from './styles'
@@ -40,6 +42,7 @@ const Game = ({
 
       <S.SectionGameDetails>
         <GameDetails {...details} />
+        <Divider />
       </S.SectionGameDetails>
 
       <ShowCase
