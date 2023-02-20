@@ -3,7 +3,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import { Grid } from '.'
 
 describe('<Grid />', () => {
-  it('should render the heading', () => {
+  it('should render the correctly', () => {
     const { container } = renderWithTheme(
       <Grid>
         <h1>Children 1</h1>
