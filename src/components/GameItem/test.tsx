@@ -14,7 +14,7 @@ const props: GameItemProps = {
 
 describe('<GameItem />', () => {
   it('should render the item', () => {
-    renderWithTheme(<GameItem {...props} />)
+    const { container } = renderWithTheme(<GameItem {...props} />)
 
     const itemHeading = screen.getByRole('heading', {
       name: /Red Dead Redemption 2/i
@@ -28,6 +28,8 @@ describe('<GameItem />', () => {
       name: /Red Dead Redemption 2/i
     })
     expect(itemImage).toHaveAttribute('src', props.image)
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the item with download link', () => {
