@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Empty /> should render correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  max-width: 100%;
+}
+
+.c2 {
+  color: #F231A5;
+  font-size: 2.8rem;
+}
+
+.c3 {
+  color: #FAFAFA;
+  font-weight: 300;
+  font-size: 1.8rem;
+  margin-bottom: 3.2rem;
+}
+
+.c4 {
+  border: none;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #FAFAFA;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  background: linear-gradient(180deg,#ff605f 0%,#f062c0 50%);
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 4rem;
+  font-size: 1.4rem;
+  padding: 0.8rem 3.2rem;
+}
+
+.c4:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
+<div
+  class="c0"
+>
+  <img
+    alt="A gamer in a couch playing videogame"
+    class="c1"
+    src="/img/empty-placeholder.svg"
+  />
+  <h2
+    class="c2"
+  >
+    A simple title
+  </h2>
+  <p
+    class="c3"
+  >
+    A simple description
+  </p>
+  <a
+    class="c4"
+    href="/"
+  >
+    <span>
+      Go back to store
+    </span>
+  </a>
+</div>
+`
