@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CartList /> should render the heading 1`] = `
+.c1 {
+  padding: 2.4rem;
+  border-bottom: 0.1rem solid #EAEAEA;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 1.2rem;
+  width: 9.6rem;
+  height: 5.6rem;
+}
+
+.c3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c5 {
+  color: #030517;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.c6 {
+  color: #FAFAFA;
+  font-weight: 600;
+  padding: 0.2rem 0.8rem;
+  font-size: 1.4rem;
+  border-radius: 0.4rem;
+  background-color: #3CD3C1;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: start;
+  -ms-flex-item-align: start;
+  align-self: start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #FAFAFA;
+}
+
+.c7 {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  color: #030517;
+  font-weight: 600;
+  font-size: 1.4rem;
+  background-color: #eee;
+}
+
+.c8 {
+  color: #F231A5;
+}
+
+@media (min-width:768px) {
+  .c1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width:768px) {
+  .c3 {
+    width: 15rem;
+    height: 7rem;
+    margin-right: 1.6rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c5 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c7 {
+    padding: 2.4rem;
+    font-size: 1.6rem;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <img
+          alt="Hoziron II"
+          src="https://wallpaperaccess.com/full/3149843.jpg"
+        />
+      </div>
+      <div
+        class="c4"
+      >
+        <h3
+          class="c5"
+        >
+          Hoziron II
+        </h3>
+        <p
+          class="c6"
+        >
+          R$ 350,00
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <img
+          alt="Halo 5"
+          src="https://wallpapers-hub.art/wallpaper-images/263763.jpg"
+        />
+      </div>
+      <div
+        class="c4"
+      >
+        <h3
+          class="c5"
+        >
+          Halo 5
+        </h3>
+        <p
+          class="c6"
+        >
+          R$ 255,00
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c7"
+  >
+    <span>
+      Total: 
+    </span>
+    <span
+      class="c8"
+    >
+      R$ 605
+    </span>
+  </div>
+</div>
+`
