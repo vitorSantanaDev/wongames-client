@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormProfile /> should render the profile form 1`] = `
+.c5 {
+  border: none;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #FAFAFA;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  background: linear-gradient(180deg,#ff605f 0%,#f062c0 50%);
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 5rem;
+  font-size: 1.6rem;
+  padding: 0.8rem 4.8rem;
+}
+
+.c5:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
+.c0 {
+  color: #030517;
+  position: relative;
+  margin-bottom: 3.2rem;
+  font-size: 1.6rem;
+}
+
+.c0::after {
+  content: '';
+  left: 0;
+  bottom: -1rem;
+  width: 5rem;
+  position: absolute;
+  border-bottom: 0.5rem solid #F231A5;
+}
+
+.c0::after {
+  width: 3rem;
+}
+
+.c2 {
+  font-size: 1.4rem;
+  color: #030517;
+  cursor: pointer;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0.2rem;
+  background: #EAEAEA;
+  padding: 0 1.6rem;
+  border: 0.2rem solid;
+  border-color: #EAEAEA;
+}
+
+.c3:focus-within {
+  box-shadow: 0 0 0.5rem #F231A5;
+}
+
+.c4 {
+  color: #030517;
+  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  font-size: 1.6rem;
+  padding: 0.8rem;
+  padding-left: 1.6rem;
+  background: transparent;
+  border: 0;
+  outline: none;
+  width: 100%;
+}
+
+.c1 {
+  max-width: 100%;
+  display: grid;
+  gap: 1.6rem;
+}
+
+.c1 > button {
+  margin-top: 5.6rem;
+}
+
+@media (min-width:768px) {
+  .c1 {
+    gap: 3.2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .c1 > button {
+    grid-column: 2;
+    justify-self: end;
+    margin-top: 0;
+  }
+}
+
+<main
+  class=""
+>
+  <h2
+    class="c0"
+    color="black"
+  >
+    My profile
+  </h2>
+  <form
+    class="c1"
+  >
+    <div
+      class=""
+    >
+      <label
+        class="c2"
+        for="name"
+      >
+        Name
+      </label>
+      <div
+        class="c3"
+      >
+        <input
+          class="c4"
+          id="name"
+          name="name"
+          placeholder="Name"
+          type="text"
+          value="Jhon Doe"
+        />
+      </div>
+    </div>
+    <div
+      class=""
+      disabled=""
+    >
+      <label
+        class="c2"
+        for="email"
+      >
+        E-mail
+      </label>
+      <div
+        class="c3"
+      >
+        <input
+          class="c4"
+          disabled=""
+          id="email"
+          name="email"
+          placeholder="E-mail"
+          type="email"
+          value="jhondoe@gamil.com"
+        />
+      </div>
+    </div>
+    <div
+      class=""
+      disabled=""
+    >
+      <label
+        class="c2"
+        for="password"
+      >
+        Password
+      </label>
+      <div
+        class="c3"
+      >
+        <input
+          class="c4"
+          disabled=""
+          id="password"
+          name="password"
+          placeholder="Type Your Password"
+          type="password"
+          value="jhondoe@gamil.com"
+        />
+      </div>
+    </div>
+    <div
+      class=""
+      disabled=""
+    >
+      <label
+        class="c2"
+        for="new_password"
+      >
+        New Password
+      </label>
+      <div
+        class="c3"
+      >
+        <input
+          class="c4"
+          disabled=""
+          id="new_password"
+          name="new_password"
+          placeholder="New Password"
+          type="password"
+          value="jhondoe@gamil.com"
+        />
+      </div>
+    </div>
+    <button
+      class="c5"
+    >
+      <span>
+        Save
+      </span>
+    </button>
+  </form>
+</main>
+`

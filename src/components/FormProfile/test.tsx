@@ -5,7 +5,7 @@ import FormProfile from '.'
 
 describe('<FormProfile />', () => {
   it('should render the profile form', () => {
-    renderWithTheme(<FormProfile />)
+    const { container } = renderWithTheme(<FormProfile />)
 
     const heading = screen.getByRole('heading', { name: /my profile/i })
     expect(heading).toBeInTheDocument()
@@ -24,5 +24,7 @@ describe('<FormProfile />', () => {
 
     const saveButton = screen.getByRole('button', { name: /save/i })
     expect(saveButton).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
