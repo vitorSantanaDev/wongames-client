@@ -50,6 +50,7 @@ exports[`<TextField /> should render with a label 1`] = `
     <input
       class="c2"
       id="Field"
+      name="Field"
       type="text"
       value=""
     />
@@ -159,6 +160,8 @@ exports[`<TextField /> should with a error message 1`] = `
     </div>
     <input
       class="c8"
+      id="field"
+      name="field"
       type="text"
       value=""
     />

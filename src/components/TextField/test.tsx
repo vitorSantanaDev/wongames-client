@@ -8,7 +8,7 @@ import TextField from '.'
 describe('<TextField />', () => {
   it('should render with a label', () => {
     const { container } = renderWithTheme(
-      <TextField label="My label" labelFor="Field" id="Field" />
+      <TextField label="My label" name="Field" />
     )
 
     expect(screen.getByLabelText(/My label/i)).toBeInTheDocument()
@@ -53,12 +53,7 @@ describe('<TextField />', () => {
   it('should there must ne changes in the value whwn typing in the input', async () => {
     const onInput = jest.fn()
     renderWithTheme(
-      <TextField
-        onInput={onInput}
-        label="My label"
-        labelFor="Field"
-        id="Field"
-      />
+      <TextField onInput={onInput} label="My label" name="Field" />
     )
 
     const input = screen.getByRole('textbox')
@@ -77,13 +72,7 @@ describe('<TextField />', () => {
   it('should must be no changes when disabled', async () => {
     const onInput = jest.fn()
     renderWithTheme(
-      <TextField
-        disabled
-        onInput={onInput}
-        label="My label"
-        labelFor="Field"
-        id="Field"
-      />
+      <TextField disabled onInput={onInput} label="My label" name="Field" />
     )
 
     const input = screen.getByRole('textbox')
@@ -100,7 +89,7 @@ describe('<TextField />', () => {
   })
 
   it('should be accessible by tab', () => {
-    renderWithTheme(<TextField label="My label" labelFor="field" id="field" />)
+    renderWithTheme(<TextField label="My label" name="field" />)
 
     const input = screen.getByLabelText(/my label/i)
     expect(document.body).toHaveFocus()
@@ -109,9 +98,7 @@ describe('<TextField />', () => {
   })
 
   it('should not accessible when disabled', () => {
-    renderWithTheme(
-      <TextField label="My label" labelFor="field" id="field" disabled />
-    )
+    renderWithTheme(<TextField label="My label" name="field" disabled />)
     const input = screen.getByLabelText('My label')
     expect(document.body).toHaveFocus()
     userEvent.tab()
@@ -123,7 +110,7 @@ describe('<TextField />', () => {
       <TextField
         icon={<Email data-testid="icon" />}
         label="My label"
-        labelFor="field"
+        name="field"
         error="Error message"
       />
     )
