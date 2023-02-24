@@ -13,7 +13,6 @@ import itemsMock from './mock'
 
 const props: ExploreSidebarProps = {
   items: [...itemsMock],
-  initialValues: {},
   onFilter: jest.fn
 }
 
