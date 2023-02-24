@@ -5,13 +5,15 @@ import CartIcon from '.'
 
 describe('<CartIcon />', () => {
   it('should render without badge', () => {
-    renderWithTheme(<CartIcon />)
+    const { container } = renderWithTheme(<CartIcon />)
 
     const cartIcon = screen.getByLabelText(/shopping cart/i)
     expect(cartIcon).toBeInTheDocument()
 
     const badge = screen.queryByLabelText(/cart items/)
     expect(badge).not.toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render with badge', () => {
