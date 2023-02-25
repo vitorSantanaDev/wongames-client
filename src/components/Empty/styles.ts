@@ -18,7 +18,7 @@ export const Title = styled.h2`
   `}
 `
 
-export const Decription = styled.p`
+export const Description = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     font-weight: ${theme.font.light};

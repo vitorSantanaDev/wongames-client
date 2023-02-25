@@ -11,7 +11,7 @@ const Empty = ({ title, description, hasLink }: EmptyProps) => (
       alt="A gamer in a couch playing videogame"
     />
     <S.Title>{title}</S.Title>
-    <S.Decription>{description}</S.Decription>
+    <S.Description>{description}</S.Description>
     {hasLink && (
       <Link href="/" passHref>
         <Button as="a">Go back to store</Button>
