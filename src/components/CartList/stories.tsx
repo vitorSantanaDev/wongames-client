@@ -23,3 +23,11 @@ export const Default: Story<CartListProps> = (args) => (
     <CartList {...args} />
   </div>
 )
+
+export const WithButton: Story<CartListProps> = (args) => (
+  <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
+    <CartList {...args} />
+  </div>
+)
+
+WithButton.args = { hasButton: true }

@@ -15,6 +15,7 @@ export const CartListFooter = styled.div`
   ${({ theme }) => css`
     padding: 2rem;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 
     color: ${theme.colors.black};

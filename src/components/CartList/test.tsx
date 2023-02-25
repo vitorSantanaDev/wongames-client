@@ -24,4 +24,22 @@ describe('<CartList />', () => {
 
     expect(container.firstChild).toMatchSnapshot()
   })
+
+  it('should render the button', () => {
+    const totalPriceValue = gameItemsMock.reduce(
+      (acc, item) =>
+        (acc += Number(item.price.replace('R$ ', '').replace(',', '.'))),
+      0
+    )
+    renderWithTheme(
+      <CartList
+        items={[...gameItemsMock]}
+        total={`R$ ${totalPriceValue}`}
+        hasButton
+      />
+    )
+
+    const button = screen.getByText(/buy it now/i)
+    expect(button).toBeInTheDocument()
+  })
 })
