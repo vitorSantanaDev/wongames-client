@@ -1,4 +1,5 @@
 import Base from 'templates/Base'
+import Empty from 'components/Empty'
 import Heading from 'components/Heading'
 import CartList from 'components/CartList'
 import ShowCase from 'components/ShowCase'
@@ -10,7 +11,6 @@ import { Container } from 'components/Container'
 import { CartProps } from './types'
 
 import * as S from './styles'
-import Empty from 'components/Empty'
 
 const Cart = ({
   items,
@@ -26,7 +26,7 @@ const Cart = ({
         <Heading lineLeft lineColor="secondary">
           My cart
         </Heading>
-        {items.length ? (
+        {!!items && items.length ? (
           <S.Content>
             <CartList items={items} total={total} />
             <PaymentOptions handlePayment={handlePayment} cards={cards} />
