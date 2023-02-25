@@ -1,7 +1,7 @@
 import { GameItemProps } from 'components/GameItem/types'
 
 export type CartListProps = {
-  total: string
+  total?: string
   hasButton?: boolean
-  items: GameItemProps[]
+  items?: GameItemProps[]
 }

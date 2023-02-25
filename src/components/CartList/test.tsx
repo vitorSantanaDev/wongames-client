@@ -42,4 +42,13 @@ describe('<CartList />', () => {
     const button = screen.getByText(/buy it now/i)
     expect(button).toBeInTheDocument()
   })
+
+  it('should render Empty if there are no items', () => {
+    renderWithTheme(<CartList />)
+    const emptyDescription = screen.getByText(/your cart is empty/i)
+    expect(emptyDescription).toBeInTheDocument()
+
+    const totalLabel = screen.queryByText(/total/i)
+    expect(totalLabel).not.toBeInTheDocument()
+  })
 })
