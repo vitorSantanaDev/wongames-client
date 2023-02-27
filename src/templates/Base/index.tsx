@@ -9,7 +9,7 @@ import * as S from './styles'
 const Base = ({ children }: BaseProps) => (
   <S.Wrapper>
     <Container>
-      <Menu />
+      <Menu username="Vitor" />
     </Container>
     <S.Content>{children}</S.Content>
     <S.SectionFooter>
