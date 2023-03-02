@@ -1,0 +1,18 @@
+schema: "http://localhost:1337/graphql"
+documents: "./src/graphql/**/*.ts"
+ignoreNoDocuments: true
+generates:
+  ./src/graphql/generated/schema.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      reactApolloVersion: 3
+      withHooks: true
+      withHOC: false
+      withComponent: false
+      avoidOptionals:
+        defaultValue: true
+        nullable: true
+
