@@ -427,12 +427,12 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     <div
                       class="c11"
                     >
-                      R$ 235,00
+                      $NaN
                     </div>
                     <div
                       class="c12"
                     >
-                      R$ 215,00
+                      $NaN
                     </div>
                     <button
                       class="c13"
@@ -517,12 +517,12 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     <div
                       class="c11"
                     >
-                      R$ 235,00
+                      $NaN
                     </div>
                     <div
                       class="c12"
                     >
-                      R$ 215,00
+                      $NaN
                     </div>
                     <button
                       class="c13"
@@ -607,12 +607,12 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     <div
                       class="c11"
                     >
-                      R$ 235,00
+                      $NaN
                     </div>
                     <div
                       class="c12"
                     >
-                      R$ 215,00
+                      $NaN
                     </div>
                     <button
                       class="c13"
@@ -697,12 +697,12 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                     <div
                       class="c11"
                     >
-                      R$ 235,00
+                      $NaN
                     </div>
                     <div
                       class="c12"
                     >
-                      R$ 215,00
+                      $NaN
                     </div>
                     <button
                       class="c13"
