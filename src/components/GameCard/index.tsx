@@ -6,6 +6,7 @@ import {
   FavoriteBorder
 } from '@styled-icons/material-outlined'
 
+import formatPrice from 'utils/formatPrice'
 import { GameCardProps } from './types'
 
 import Button from 'components/Button'
@@ -54,8 +55,10 @@ const GameCard = ({
         )}
       </S.FavButton>
       <S.BuyBox>
-        {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
-        <S.Price>{promotionalPrice || price}</S.Price>
+        {!!promotionalPrice && (
+          <S.Price isPromotional>{formatPrice(price)}</S.Price>
+        )}
+        <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
         <Button icon={<AddShoppingCart />} size="small" />
       </S.BuyBox>
     </S.Content>

@@ -10,7 +10,7 @@ const props = {
   developer: 'Rockstar Games',
   image:
     'https://images.unsplash.com/photo-1555680202-c86f0e12f086?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-  price: 'R$ 235,00'
+  price: 15
 }
 
 describe('<GameCard />', () => {
@@ -44,37 +44,33 @@ describe('<GameCard />', () => {
   it('should render price in label', () => {
     renderWithTheme(<GameCard {...props} />)
 
-    const price = screen.getByText(props.price)
+    const price = screen.getByText(`$${props.price}.00`)
 
     expect(price).not.toHaveStyle({ 'text-decoration': 'line-through' })
     expect(price).toHaveStyle({ 'background-color': theme.colors.secondary })
   })
 
   it('should render a line-through in price when promotional', () => {
-    renderWithTheme(<GameCard promotionalPrice="R$ 15,00" {...props} />)
+    renderWithTheme(<GameCard promotionalPrice={14} {...props} />)
 
-    const price = screen.getByText(props.price)
+    const price = screen.getByText(`$${props.price}.00`)
 
     expect(price).toHaveStyle({ 'text-decoration': 'line-through' })
-    expect(screen.getByText('R$ 15,00')).not.toHaveStyle({
+    expect(screen.getByText('$14.00')).not.toHaveStyle({
       'text-decoration': 'line-through'
     })
   })
 
   it('should render the promotional price than the regular price', () => {
-    renderWithTheme(<GameCard promotionalPrice="R$ 15,00" {...props} />)
+    renderWithTheme(<GameCard promotionalPrice={14} {...props} />)
 
-    const promotionalPriceIsLessThanPrice =
-      parseInt(props.price.replace('R$ ', '')) >
-      parseInt('R$ 15,00'.replace('R$ ', ''))
+    const promotionalPriceIsLessThanPrice = props.price > 14
 
     expect(promotionalPriceIsLessThanPrice).toEqual(true)
   })
 
   it('should render a filled favorite icon when favorite is true', () => {
-    renderWithTheme(
-      <GameCard promotionalPrice="R$ 15,00" {...props} favorite />
-    )
+    renderWithTheme(<GameCard promotionalPrice={14} {...props} favorite />)
 
     expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
   })
@@ -83,12 +79,7 @@ describe('<GameCard />', () => {
     const onFav = jest.fn()
 
     renderWithTheme(
-      <GameCard
-        promotionalPrice="R$ 15,00"
-        {...props}
-        favorite
-        onFavorite={onFav}
-      />
+      <GameCard promotionalPrice={14} {...props} favorite onFavorite={onFav} />
     )
 
     fireEvent.click(screen.getAllByRole('button')[0])
