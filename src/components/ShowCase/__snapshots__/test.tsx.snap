@@ -249,6 +249,8 @@ exports[`<ShowCase /> should render full ShowCase 1`] = `
 .c15 {
   width: 100%;
   height: 14rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   background: #f6f7f8;
   background-image: linear-gradient( to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100% );
   background-size: 80rem 14rem;
@@ -264,6 +266,8 @@ exports[`<ShowCase /> should render full ShowCase 1`] = `
 
 .c17 {
   max-width: calc(100% - 2.5rem);
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c18 {
@@ -552,19 +556,21 @@ exports[`<ShowCase /> should render full ShowCase 1`] = `
                 <article
                   class="c14"
                 >
-                  <div
+                  <a
                     class="c15"
+                    href="/game/population-zero"
                   >
                     <img
                       alt="Population Zero"
                       src="https://wallpaperaccess.com/full/625497.jpg"
                     />
-                  </div>
+                  </a>
                   <div
                     class="c16"
                   >
-                    <div
+                    <a
                       class="c17"
+                      href="/game/population-zero"
                     >
                       <h3
                         class="c18"
@@ -576,7 +582,7 @@ exports[`<ShowCase /> should render full ShowCase 1`] = `
                       >
                         Rockstar Games
                       </h4>
-                    </div>
+                    </a>
                     <div
                       class="c20"
                       role="button"
