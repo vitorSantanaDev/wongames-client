@@ -7,6 +7,7 @@ import Ribbon from 'components/Ribbon'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
 
+import formatPrice from 'utils/formatPrice'
 import { GameInfoProps } from './types'
 
 import * as S from './styles'
@@ -16,7 +17,7 @@ const GameInfo = ({ price, title, description }: GameInfoProps) => (
     <Heading color="black" lineBottom>
       {title}
     </Heading>
-    <Ribbon color="secondary">{`$${price}`}</Ribbon>
+    <Ribbon color="secondary">{formatPrice(price)}</Ribbon>
     <S.Description>{description}</S.Description>
     <S.ButtonsWrapper>
       <Button icon={<AddShoppingCart />} size="large">

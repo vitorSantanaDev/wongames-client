@@ -1,5 +1,5 @@
 export type GameInfoProps = {
   title: string
-  price: string
+  price: number
   description: string
 }
