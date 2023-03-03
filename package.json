@@ -15,8 +15,7 @@
     "build-storybook": "build-storybook",
     "postinstall": "husky install",
     "prepare": "husky install",
-    "typecheck": "tsc --project tsconfig.json --noEmit",
-    "codegen": "graphql-codegen"
+    "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "lint-staged": {
     "src/**/*": [
@@ -42,10 +41,6 @@
     "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^3.2.1",
-    "@graphql-codegen/introspection": "3.0.1",
-    "@graphql-codegen/typescript-operations": "^3.0.1",
-    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@storybook/addon-essentials": "6.4.17",
     "@storybook/builder-webpack5": "^6.4.17",
     "@storybook/manager-webpack5": "^6.4.17",
