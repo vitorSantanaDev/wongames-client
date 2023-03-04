@@ -5,4 +5,5 @@ export type ShowCaseProps = {
   title?: string
   highlight?: HighlightProps
   games?: GameCardProps[]
+  color?: 'black' | 'white'
 }

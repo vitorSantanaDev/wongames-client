@@ -6,7 +6,12 @@ import { ShowCaseProps } from './types'
 
 import * as S from './styles'
 
-const ShowCase = ({ title, games, highlight }: ShowCaseProps) => (
+const ShowCase = ({
+  title,
+  games,
+  highlight,
+  color = 'white'
+}: ShowCaseProps) => (
   <S.Wrapper>
     {!!title && (
       <Heading lineLeft lineColor="secondary">
@@ -14,7 +19,7 @@ const ShowCase = ({ title, games, highlight }: ShowCaseProps) => (
       </Heading>
     )}
     {!!highlight && <Highlight {...highlight} />}
-    {!!games?.length && <GameCardSlider color="white" items={games} />}
+    {!!games?.length && <GameCardSlider color={color} items={games} />}
   </S.Wrapper>
 )
 

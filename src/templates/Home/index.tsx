@@ -26,7 +26,7 @@ const Home = ({
         </S.SectionBanner>
       </Container>
       <S.SectionNews>
-        <ShowCase title="News" games={newGames} />
+        <ShowCase color="black" title="News" games={newGames} />
       </S.SectionNews>
       <ShowCase
         title="Most Popular"
