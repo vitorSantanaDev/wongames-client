@@ -9,7 +9,6 @@ export type HomeTemplateProps = {
   mostPopularGames: GameCardProps[]
   upcommingGames: GameCardProps[]
   upcommingHighlight: HighlightProps
-  upcommingMoreGames: GameCardProps[]
   freeGames: GameCardProps[]
   freeHighlight: HighlightProps
 }

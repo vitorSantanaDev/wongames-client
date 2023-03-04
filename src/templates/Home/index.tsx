@@ -15,7 +15,6 @@ const Home = ({
   upcommingGames,
   mostPopularGames,
   upcommingHighlight,
-  upcommingMoreGames,
   mostPopularHighlight
 }: HomeTemplateProps) => {
   return (
@@ -33,10 +32,13 @@ const Home = ({
         games={mostPopularGames}
         highlight={mostPopularHighlight}
       />
-      <S.SectionUpcomming>
-        <ShowCase title="Upcomming" games={upcommingGames} />
-        <ShowCase highlight={upcommingHighlight} games={upcommingMoreGames} />
-      </S.SectionUpcomming>
+
+      <ShowCase
+        title="Upcomming"
+        games={upcommingGames}
+        highlight={upcommingHighlight}
+      />
+
       <ShowCase
         title="Free Games"
         highlight={freeHighlight}
