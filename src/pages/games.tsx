@@ -8,11 +8,9 @@ import Games from 'templates/Games'
 
 import { QUERY_GAMES } from 'graphql/queries/games'
 
-import {
-  QueryGamesQuery,
-  QueryGamesQueryVariables
-} from 'graphql/generated/schema'
 import { GameCardProps } from 'components/GameCard/types'
+
+import { QueryGamesQuery, QueryGamesQueryVariables } from 'graphql/types/schema'
 
 export default function GamesPage(props: GamesProps) {
   return <Games {...props} />

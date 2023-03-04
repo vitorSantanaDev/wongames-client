@@ -13,12 +13,16 @@ import { HomeTemplateProps } from './types'
 const props: HomeTemplateProps = {
   banners: bannerMock,
   newGames: [gamesMock[0]],
-  mostPopularHighlight: highlightMock,
+  mostPopularGamesHighlight: highlightMock,
   mostPopularGames: [gamesMock[0]],
-  upcommingGames: [gamesMock[0]],
-  upcommingHighlight: highlightMock,
+  upcomingGames: [gamesMock[0]],
+  upcomingGamesHighlight: highlightMock,
   freeGames: [gamesMock[0]],
-  freeHighlight: highlightMock
+  freeGamesHighlight: highlightMock,
+  freeGamesTitle: 'Free Games',
+  mostPopularGamesTitle: 'Most Popular Games',
+  newGamesTitle: 'New Games',
+  upcomingGamesTitle: 'Upcoming Games'
 }
 
 jest.mock('components/ShowCase', () => {

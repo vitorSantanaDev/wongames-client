@@ -5,5 +5,7 @@ export type HighlightProps = {
   buttonLink: string
   backgroundImage: string
   floatImage?: string
-  alignment?: 'right' | 'left'
+  alignment?: Aligment
 }
+
+export type Aligment = 'right' | 'left'

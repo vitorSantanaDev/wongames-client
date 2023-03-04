@@ -11,11 +11,15 @@ const Home = ({
   banners,
   newGames,
   freeGames,
-  freeHighlight,
-  upcommingGames,
+  upcomingGames,
+  newGamesTitle,
+  freeGamesTitle,
   mostPopularGames,
-  upcommingHighlight,
-  mostPopularHighlight
+  upcomingGamesTitle,
+  freeGamesHighlight,
+  mostPopularGamesTitle,
+  upcomingGamesHighlight,
+  mostPopularGamesHighlight
 }: HomeTemplateProps) => {
   return (
     <Base>
@@ -25,23 +29,21 @@ const Home = ({
         </S.SectionBanner>
       </Container>
       <S.SectionNews>
-        <ShowCase color="black" title="News" games={newGames} />
+        <ShowCase color="black" title={newGamesTitle} games={newGames} />
       </S.SectionNews>
       <ShowCase
-        title="Most Popular"
+        title={mostPopularGamesTitle}
         games={mostPopularGames}
-        highlight={mostPopularHighlight}
+        highlight={mostPopularGamesHighlight}
       />
-
       <ShowCase
-        title="Upcomming"
-        games={upcommingGames}
-        highlight={upcommingHighlight}
+        title={upcomingGamesTitle}
+        games={upcomingGames}
+        highlight={upcomingGamesHighlight}
       />
-
       <ShowCase
-        title="Free Games"
-        highlight={freeHighlight}
+        title={freeGamesTitle}
+        highlight={freeGamesHighlight}
         games={freeGames}
       />
     </Base>

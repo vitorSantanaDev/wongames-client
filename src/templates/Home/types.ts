@@ -4,11 +4,19 @@ import { HighlightProps } from 'components/Highlight/types'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
+
+  newGamesTitle: string
   newGames: GameCardProps[]
-  mostPopularHighlight: HighlightProps
+
+  mostPopularGamesTitle: string
   mostPopularGames: GameCardProps[]
-  upcommingGames: GameCardProps[]
-  upcommingHighlight: HighlightProps
+  mostPopularGamesHighlight: HighlightProps
+
+  upcomingGamesTitle: string
+  upcomingGames: GameCardProps[]
+  upcomingGamesHighlight: HighlightProps
+
+  freeGamesTitle: string
   freeGames: GameCardProps[]
-  freeHighlight: HighlightProps
+  freeGamesHighlight: HighlightProps
 }
