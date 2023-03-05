@@ -17,6 +17,7 @@ const Cart = ({
   total,
   cards,
   recommendedGames,
+  recommendedTitle,
   recommendedHighlight
 }: CartProps) => {
   const handlePayment = () => ({})
@@ -41,7 +42,7 @@ const Cart = ({
         <Divider />
       </Container>
       <ShowCase
-        title="You may like these games"
+        title={recommendedTitle || 'You may like these games'}
         games={recommendedGames}
         highlight={recommendedHighlight}
       />

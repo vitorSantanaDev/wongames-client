@@ -4,6 +4,7 @@ import { HighlightProps } from 'components/Highlight/types'
 import { PaymentOptionsProps } from 'components/PaymentOptions/types'
 
 export type CartProps = {
+  recommendedTitle?: string
   recommendedHighlight: HighlightProps
   recommendedGames: GameCardProps[]
 } & CartListProps &
