@@ -92,3 +92,14 @@ export type QueryHomeQuery = {
     upcomingGames: UpcomingGamesQuery
   }
 }
+
+export type RecommendedSection = Pick<
+  Seciton,
+  Exclude<keyof Seciton, 'title'>
+> & { title?: string }
+
+export type QueryRecommendedQuery = {
+  recommended: {
+    section: RecommendedSection
+  }
+}

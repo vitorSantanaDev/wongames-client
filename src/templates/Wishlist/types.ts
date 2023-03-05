@@ -5,4 +5,5 @@ export type WishlistProps = {
   games?: GameCardProps[]
   recommendedHighlight: HighlightProps
   recommendedGames: GameCardProps[]
+  recommendTitle?: string
 }

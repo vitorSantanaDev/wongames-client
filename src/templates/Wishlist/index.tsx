@@ -13,7 +13,8 @@ import Empty from 'components/Empty'
 const Wishlist = ({
   games,
   recommendedGames,
-  recommendedHighlight
+  recommendedHighlight,
+  recommendTitle
 }: WishlistProps) => {
   return (
     <Base>
@@ -37,8 +38,8 @@ const Wishlist = ({
         <Divider />
       </Container>
       <ShowCase
+        title={recommendTitle || 'You make like these games'}
         games={recommendedGames}
-        title="You may like these games"
         highlight={recommendedHighlight}
       />
     </Base>
