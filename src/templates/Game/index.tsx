@@ -19,8 +19,10 @@ const Game = ({
   gallery,
   gameInfo,
   description,
+  upcomingTitle,
   upcommingGames,
   recommendedGames,
+  recommendedTitle,
   upcommingHighlight
 }: GameProps) => (
   <Base>
@@ -46,12 +48,15 @@ const Game = ({
       </S.SectionGameDetails>
 
       <ShowCase
-        title="Upcomming"
+        title={upcomingTitle || 'Upcoming'}
         games={upcommingGames}
         highlight={upcommingHighlight}
       />
 
-      <ShowCase title="You may like these games" games={recommendedGames} />
+      <ShowCase
+        title={recommendedTitle || 'You may like these games'}
+        games={recommendedGames}
+      />
     </S.Wrapper>
   </Base>
 )

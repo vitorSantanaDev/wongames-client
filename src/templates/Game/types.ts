@@ -13,4 +13,6 @@ export type GameProps = {
   upcommingGames: GameCardProps[]
   upcommingHighlight: HighlightProps
   recommendedGames: GameCardProps[]
+  recommendedTitle?: string
+  upcomingTitle?: string
 }

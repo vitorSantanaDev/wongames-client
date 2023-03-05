@@ -45,6 +45,10 @@ export type QueryGameBySlugQuery = {
   games: GameDetails[]
 }
 
+export type QueryGameBySlugQueryVariables = {
+  slug: string
+}
+
 export type Button = { label: string; link: string }
 
 export type Ribbon = { text: string; size?: RibbonSizes; color?: RibbonColors }
@@ -102,4 +106,11 @@ export type QueryRecommendedQuery = {
   recommended: {
     section: RecommendedSection
   }
+}
+
+export type QueryUpcomingQueryVariables = { date: string }
+
+export type QueryUpcomingQuery = {
+  upcomingGames: Game[]
+  showCase: { upcomingHighlight: Pick<Seciton, 'title' | 'highlight'> }
 }

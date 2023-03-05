@@ -24,7 +24,7 @@ export const QUERY_GAME_BY_SLUG = gql`
         label: alternativeText
       }
       cover {
-        src: url
+        url
       }
       developers {
         name
