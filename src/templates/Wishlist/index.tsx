@@ -38,7 +38,7 @@ const Wishlist = ({
         <Divider />
       </Container>
       <ShowCase
-        title={recommendTitle || 'You make like these games'}
+        title={recommendTitle || 'You may like these games'}
         games={recommendedGames}
         highlight={recommendedHighlight}
       />
