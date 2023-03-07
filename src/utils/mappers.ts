@@ -20,7 +20,7 @@ export const gamesMapper = (games: Game[]) => {
     ? games.map((game) => ({
         slug: game.slug,
         title: game.name,
-        developer: game.developers[0].name,
+        developer: game.developers[0]?.name,
         image: `http://localhost:1337${game.cover?.url}`,
         price: game.price
       }))
