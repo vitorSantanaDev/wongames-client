@@ -35,7 +35,7 @@ export interface GameDetails extends Game {
   platforms: Array<GenericInfoGame>
 }
 
-export type QueryGamesQueryVariables = { limit: number }
+export type QueryGamesQueryVariables = { limit: number; start?: number }
 
 export type QueryGamesQuery = {
   games: Game[]

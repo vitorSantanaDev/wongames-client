@@ -8,8 +8,6 @@ import Games from 'templates/Games'
 
 import { QUERY_GAMES } from 'graphql/queries/games'
 
-import { GameCardProps } from 'components/GameCard/types'
-
 import { QueryGamesQuery, QueryGamesQueryVariables } from 'graphql/types/schema'
 
 export default function GamesPage(props: GamesProps) {
@@ -19,29 +17,16 @@ export default function GamesPage(props: GamesProps) {
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
-  const { data } = await apolloClient.query<
-    QueryGamesQuery,
-    QueryGamesQueryVariables
-  >({
+  await apolloClient.query<QueryGamesQuery, QueryGamesQueryVariables>({
     query: QUERY_GAMES,
-    variables: { limit: 9 }
-  })
-
-  const gamesData: GameCardProps[] = data.games.map((game) => {
-    return {
-      slug: game.slug,
-      title: game.name,
-      price: game.price,
-      image: `http://localhost:1337${game.cover!.url}`,
-      developer: game.developers[0].name
-    }
+    variables: { limit: 15 }
   })
 
   return {
     props: {
       revalidate: 60,
-      games: [...gamesData],
-      filterItems: [...filterItemsMock]
+      filterItems: [...filterItemsMock],
+      initialApolloState: apolloClient.cache.extract()
     }
   }
 }
