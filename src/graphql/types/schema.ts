@@ -35,10 +35,25 @@ export interface GameDetails extends Game {
   platforms: Array<GenericInfoGame>
 }
 
-export type QueryGamesQueryVariables = { limit: number; start?: number }
+export type QueryGamesQueryVariables = {
+  limit: number
+  start?: number
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  where?: any
+  sort?: string | null
+}
+
+export interface QueryGames_gamesConnectionValues {
+  id: string
+}
+
+export interface QueryGames_gamesConnection {
+  values: (QueryGames_gamesConnectionValues | null)[] | null
+}
 
 export type QueryGamesQuery = {
   games: Game[]
+  gamesConnection?: QueryGames_gamesConnection | null
 }
 
 export type QueryGameBySlugQuery = {

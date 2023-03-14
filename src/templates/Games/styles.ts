@@ -13,16 +13,28 @@ export const Main = styled(Container)`
 `
 
 export const ShowMore = styled.div`
+  ${() => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+  `}
+`
+
+export const ShowMoreButton = styled.div`
   ${({ theme }) => css`
-    cursor: pointer;
-    font-weight: bold;
     text-align: center;
     text-transform: uppercase;
-    padding: ${theme.spacings.medium};
+    font-weight: bold;
+    cursor: pointer;
     color: ${theme.colors.white};
 
     > svg {
       color: ${theme.colors.primary};
     }
   `}
+`
+
+export const ShowMoreLoading = styled.img`
+  width: 4rem;
 `

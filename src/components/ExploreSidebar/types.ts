@@ -1,17 +1,17 @@
+import { ParsedUrlQueryInput } from 'querystring'
+
 export type ExploreSidebarProps = {
   items: ItemProps[]
   initialValues?: Values
   onFilter: (values: Values) => void
 }
 
-export type Values = {
-  [field: string]: boolean | string
-}
+export type Values = ParsedUrlQueryInput
 
 export type ItemProps = {
   title: string
   name: string
-  type: 'checkbox' | 'radio'
+  type: string
   fields: Field[]
 }
 

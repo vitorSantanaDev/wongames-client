@@ -5,9 +5,20 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import { MockedProvider } from '@apollo/client/testing'
 
 import filterItemsMock from 'components/ExploreSidebar/mock'
-import { fetchMoreMock, gamesMock, queryMock } from './mocks'
+import { fetchMoreMock, gamesMock, noGamesMock } from './mocks'
 
 import Games from '.'
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+const push = jest.fn()
+
+useRouter.mockImplementation(() => ({
+  push,
+  query: '',
+  asPath: '',
+  route: '/'
+}))
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -16,33 +27,14 @@ jest.mock('templates/Base', () => ({
   }
 }))
 
-jest.mock('components/ExploreSidebar', () => ({
+jest.mock('next/link', () => ({
   __esModule: true,
   default: function Mock({ children }: { children: React.ReactNode }) {
-    return <div data-testid="Mock ExploreSidebar">{children}</div>
+    return <div>{children}</div>
   }
 }))
 
 describe('<Games />', () => {
-  it('should render loading when starting template', () => {
-    renderWithTheme(
-      <MockedProvider
-        mocks={[
-          {
-            ...queryMock({ limit: 15 })
-          }
-        ]}
-        addTypename={false}
-      >
-        <Games filterItems={filterItemsMock} />
-      </MockedProvider>
-    )
-
-    const loading = document.getElementById('loading')
-
-    expect(loading).toBeInTheDocument()
-  })
-
   it('should render sections', async () => {
     renderWithTheme(
       <MockedProvider mocks={[gamesMock]} addTypename={false}>
@@ -51,18 +43,10 @@ describe('<Games />', () => {
     )
 
     /**
-     * @description it starts without data, shows loading!
-     **/
-    const loading = document.getElementById('loading')
-    expect(loading).toBeInTheDocument()
-
-    /**
      * @description we wait until we have data to get elements
      **/
-    const exploreSideBarComponent = await screen.findByTestId(
-      'Mock ExploreSidebar'
-    )
-    expect(exploreSideBarComponent).toBeInTheDocument()
+    const exploreSideBarFilter = await screen.findByText(/Price/i)
+    expect(exploreSideBarFilter).toBeInTheDocument()
 
     const game = await screen.findByText(/Sample Game/i)
     expect(game).toBeInTheDocument()
@@ -91,5 +75,46 @@ describe('<Games />', () => {
 
     const moreGame = await screen.findByText(/Fetch More Game/i)
     expect(moreGame).toBeInTheDocument()
+  })
+
+  it('should change push router when selecting a filter', async () => {
+    renderWithTheme(
+      <MockedProvider mocks={[gamesMock, fetchMoreMock]} cache={apolloCache}>
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
+    )
+
+    const windowsOption = await screen.findByRole('checkbox', {
+      name: /windows/i
+    })
+
+    const linuxOption = await screen.findByRole('checkbox', {
+      name: /linux/i
+    })
+
+    const lowToHighOption = await screen.findByRole('radio', {
+      name: /low to high/i
+    })
+
+    userEvent.click(windowsOption)
+    userEvent.click(linuxOption)
+    userEvent.click(lowToHighOption)
+
+    expect(push).toHaveBeenCalledWith({
+      pathname: '/games',
+      query: { platforms: ['windows', 'linux'], sort_by: 'low-to-high' }
+    })
+  })
+
+  it('should render empty when no games found', async () => {
+    renderWithTheme(
+      <MockedProvider mocks={[noGamesMock]} addTypename={false}>
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
+    )
+
+    expect(
+      await screen.findByText(/We didn't find any games with this filter/i)
+    ).toBeInTheDocument()
   })
 })

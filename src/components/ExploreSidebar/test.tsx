@@ -26,7 +26,7 @@ describe('<ExploreSidebar />', () => {
     const sortByHeading = screen.getByRole('heading', { name: /sort by/i })
     expect(sortByHeading).toBeInTheDocument()
 
-    const systemHeading = screen.getByRole('heading', { name: /system/i })
+    const systemHeading = screen.getByRole('heading', { name: /platforms/i })
     expect(systemHeading).toBeInTheDocument()
 
     const genreHeading = screen.getByRole('heading', { name: /genre/i })
@@ -60,7 +60,10 @@ describe('<ExploreSidebar />', () => {
     renderWithTheme(
       <ExploreSidebar
         {...props}
-        initialValues={{ windows: true, sort_by: 'low-to-high' }}
+        initialValues={{
+          platforms: ['windows'],
+          sort_by: 'low-to-high'
+        }}
       />
     )
 
@@ -81,18 +84,20 @@ describe('<ExploreSidebar />', () => {
       <ExploreSidebar
         {...props}
         onFilter={onFilter}
-        initialValues={{ windows: true, sort_by: 'low-to-high' }}
+        initialValues={{
+          platforms: ['windows'],
+          sort_by: 'low-to-high'
+        }}
       />
     )
 
-    const filterButton = screen.getByRole('button', { name: /filter/i })
-
-    userEvent.click(filterButton)
-
-    expect(onFilter).toBeCalledWith({ windows: true, sort_by: 'low-to-high' })
+    expect(onFilter).toBeCalledWith({
+      platforms: ['windows'],
+      sort_by: 'low-to-high'
+    })
   })
 
-  it('should filter with checked values', () => {
+  it('should render filter with checked values', () => {
     const onFilter = jest.fn()
     renderWithTheme(<ExploreSidebar {...props} onFilter={onFilter} />)
 
@@ -108,14 +113,17 @@ describe('<ExploreSidebar />', () => {
     userEvent.click(lowToHighRadio)
     userEvent.click(filterButton)
 
-    expect(onFilter).toBeCalledWith({ windows: true, sort_by: 'low-to-high' })
+    expect(onFilter).toHaveBeenCalledTimes(3)
+
+    expect(onFilter).toBeCalledWith({
+      platforms: ['windows'],
+      sort_by: 'low-to-high'
+    })
   })
 
   it('should altern between radio options', () => {
     const onFilter = jest.fn()
     renderWithTheme(<ExploreSidebar {...props} onFilter={onFilter} />)
-
-    const filterButton = screen.getByRole('button', { name: /filter/i })
 
     const highToLowRadio = screen.getByRole('radio', {
       name: /high to low/i
@@ -126,7 +134,6 @@ describe('<ExploreSidebar />', () => {
 
     userEvent.click(lowToHighRadio)
     userEvent.click(highToLowRadio)
-    userEvent.click(filterButton)
 
     expect(onFilter).toBeCalledWith({ sort_by: 'high-to-low' })
   })
@@ -155,6 +162,14 @@ describe('<ExploreSidebar />', () => {
     expect(Element).toHaveStyleRule('opacity', '1', variant)
 
     userEvent.click(closeFiltersButton)
+
+    expect(Element).not.toHaveStyleRule('opacity', '1', variant)
+
+    userEvent.click(openFiltersButton)
+
+    const filtersMenuButton = screen.getByRole('button', { name: /filter/i })
+
+    userEvent.click(filtersMenuButton)
 
     expect(Element).not.toHaveStyleRule('opacity', '1', variant)
   })

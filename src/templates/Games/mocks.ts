@@ -8,8 +8,21 @@ export const queryMock = (variables: QueryGamesQueryVariables) => ({
   }
 })
 
+export const noGamesMock = {
+  ...queryMock({ limit: 15, where: {} }),
+  result: {
+    data: {
+      games: [],
+      gamesConnection: {
+        values: [],
+        __typename: 'GameConnection'
+      }
+    }
+  }
+}
+
 export const gamesMock = {
-  ...queryMock({ limit: 15 }),
+  ...queryMock({ limit: 15, where: {} }),
   result: {
     data: {
       games: [
@@ -23,13 +36,17 @@ export const gamesMock = {
           },
           __typename: 'Game'
         }
-      ]
+      ],
+      gamesConnection: {
+        values: [{ id: '1' }, { id: '2' }],
+        __typename: 'GameConnection'
+      }
     }
   }
 }
 
 export const fetchMoreMock = {
-  ...queryMock({ limit: 15, start: 1 }),
+  ...queryMock({ limit: 15, start: 1, where: {} }),
   result: {
     data: {
       games: [
@@ -43,7 +60,11 @@ export const fetchMoreMock = {
           },
           __typename: 'Game'
         }
-      ]
+      ],
+      gamesConnection: {
+        values: [{ id: '1' }, { id: '2' }],
+        __typename: 'GameConnection'
+      }
     }
   }
 }
