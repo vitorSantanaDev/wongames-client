@@ -18,6 +18,7 @@ export const bannersMapper = (banners: Banner[]) => {
 export const gamesMapper = (games: Game[]) => {
   return games.length
     ? games.map((game) => ({
+        id: game.id,
         slug: game.slug,
         title: game.name,
         developer: game.developers[0]?.name,
