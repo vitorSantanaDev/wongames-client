@@ -146,6 +146,7 @@ exports[`<CartDropdown /> should render the <CartIcon /> and its badge 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding-right: 2.4rem;
+  z-index: 50;
 }
 
 .c7 {
@@ -161,6 +162,7 @@ exports[`<CartDropdown /> should render the <CartIcon /> and its badge 1`] = `
   margin-top: 2.4rem;
   position: absolute;
   right: 0;
+  z-index: 50;
 }
 
 .c7::before {
@@ -173,6 +175,16 @@ exports[`<CartDropdown /> should render the <CartIcon /> and its badge 1`] = `
   right: 2.4rem;
 }
 
+.c20 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  background-color: rgba(0,0,0,0.5);
+}
+
 .c1 {
   position: relative;
   width: -webkit-max-content;
@@ -180,7 +192,8 @@ exports[`<CartDropdown /> should render the <CartIcon /> and its badge 1`] = `
   width: max-content;
 }
 
-.c1 .c6 {
+.c1 .c6,
+.c1 .c19 {
   -webkit-transition: -webkit-transform 0.2s ease-in,opacity 0.3s ease-in-out;
   -webkit-transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
   transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
@@ -376,6 +389,10 @@ exports[`<CartDropdown /> should render the <CartIcon /> and its badge 1`] = `
         </div>
       </div>
     </div>
+    <div
+      aria-hidden="true"
+      class="c19 c20"
+    />
   </main>
 </div>
 `

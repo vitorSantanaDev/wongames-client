@@ -20,6 +20,7 @@ exports[`<UserDropdown /> should render the username 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding-right: 2.4rem;
+  z-index: 50;
 }
 
 .c5 {
@@ -35,6 +36,7 @@ exports[`<UserDropdown /> should render the username 1`] = `
   margin-top: 2.4rem;
   position: absolute;
   right: 0;
+  z-index: 50;
 }
 
 .c5::before {
@@ -47,6 +49,16 @@ exports[`<UserDropdown /> should render the username 1`] = `
   right: 2.4rem;
 }
 
+.c9 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  background-color: rgba(0,0,0,0.5);
+}
+
 .c0 {
   position: relative;
   width: -webkit-max-content;
@@ -54,7 +66,8 @@ exports[`<UserDropdown /> should render the username 1`] = `
   width: max-content;
 }
 
-.c0 .c4 {
+.c0 .c4,
+.c0 .c8 {
   -webkit-transition: -webkit-transform 0.2s ease-in,opacity 0.3s ease-in-out;
   -webkit-transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
   transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
@@ -235,5 +248,9 @@ exports[`<UserDropdown /> should render the username 1`] = `
       </a>
     </nav>
   </div>
+  <div
+    aria-hidden="true"
+    class="c8 c9"
+  />
 </main>
 `

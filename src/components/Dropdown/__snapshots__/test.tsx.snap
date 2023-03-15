@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Dropdown /> should handle open/close dropdwon 1`] = `
+exports[
+  `<Dropdown /> should handle open/close dropdwon when clicking on overlay 1`
+] = `
 .c1 {
   cursor: pointer;
   color: #FAFAFA;
@@ -14,6 +16,7 @@ exports[`<Dropdown /> should handle open/close dropdwon 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding-right: 2.4rem;
+  z-index: 50;
 }
 
 .c3 {
@@ -29,6 +32,7 @@ exports[`<Dropdown /> should handle open/close dropdwon 1`] = `
   margin-top: 2.4rem;
   position: absolute;
   right: 0;
+  z-index: 50;
 }
 
 .c3::before {
@@ -41,6 +45,16 @@ exports[`<Dropdown /> should handle open/close dropdwon 1`] = `
   right: 2.4rem;
 }
 
+.c5 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  background-color: rgba(0,0,0,0.5);
+}
+
 .c0 {
   position: relative;
   width: -webkit-max-content;
@@ -48,7 +62,8 @@ exports[`<Dropdown /> should handle open/close dropdwon 1`] = `
   width: max-content;
 }
 
-.c0 .c2 {
+.c0 .c2,
+.c0 .c4 {
   -webkit-transition: -webkit-transform 0.2s ease-in,opacity 0.3s ease-in-out;
   -webkit-transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
   transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
@@ -59,7 +74,8 @@ exports[`<Dropdown /> should handle open/close dropdwon 1`] = `
   transform: translateY(-2rem);
 }
 
-.c4 .c2 {
+.c6 .c2,
+.c6 .c4 {
   -webkit-transition: -webkit-transform 0.2s ease-in,opacity 0.3s ease-in-out;
   -webkit-transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
   transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
@@ -90,5 +106,9 @@ exports[`<Dropdown /> should handle open/close dropdwon 1`] = `
       content
     </span>
   </div>
+  <div
+    aria-hidden="true"
+    class="c4 c5"
+  />
 </main>
 `
