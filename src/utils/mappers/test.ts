@@ -1,5 +1,5 @@
 import { Banner, Game, Highlight } from 'graphql/types/schema'
-import { bannersMapper, gamesMapper, highlightMapper } from '.'
+import { bannersMapper, gamesMapper, highlightMapper, cartItemsMapper } from '.'
 
 describe('bannerMapper()', () => {
   it('should return the right format when mapped', () => {
@@ -92,5 +92,27 @@ describe('highlightMapper()', () => {
       alignment: 'right',
       floatImage: 'http://localhost:1337/image.jpg'
     })
+  })
+})
+
+describe('cartItemsMapper()', () => {
+  it('should return mapped game as a cart item', () => {
+    const game: Game = {
+      developers: [{ name: 'developer' }],
+      id: '1',
+      name: 'Game',
+      price: 10,
+      slug: 'game',
+      cover: { url: '/img/img.png' }
+    }
+
+    expect(cartItemsMapper([game])).toStrictEqual([
+      {
+        id: '1',
+        title: 'Game',
+        price: '$10.00',
+        img: `http://localhost:1337${game.cover?.url}`
+      }
+    ])
   })
 })

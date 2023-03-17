@@ -1,4 +1,5 @@
 import { Banner, Game, Highlight } from 'graphql/types/schema'
+import formatPrice from 'utils/formatPrice'
 
 export const bannersMapper = (banners: Banner[]) => {
   return banners.map((banner) => ({
@@ -40,4 +41,13 @@ export const highlightMapper = (highlight: Highlight) => {
       backgroundImage: `http://localhost:1337${highlight.background?.url}`
     }
   )
+}
+
+export const cartItemsMapper = (games: Game[]) => {
+  return games.map((game) => ({
+    id: game.id,
+    title: game.name,
+    price: formatPrice(game.price),
+    img: `http://localhost:1337${game.cover?.url}`
+  }))
 }
