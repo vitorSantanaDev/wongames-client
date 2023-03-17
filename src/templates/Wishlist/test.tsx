@@ -1,14 +1,12 @@
 import 'match-media-mock'
 
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
 import { WishlistProps } from './types'
 
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
 import Wishlist from '.'
+import { render, screen } from 'utils/test-utils'
 
 const props: WishlistProps = {
   games: gamesMock,
@@ -27,7 +25,7 @@ jest.mock('components/ShowCase', () => {
 
 describe('<Wishlist />', () => {
   it('should render correctly', () => {
-    renderWithTheme(<Wishlist {...props} />)
+    render(<Wishlist {...props} />)
 
     const games = screen.getAllByText(/Population Zero/i)
     expect(games).toHaveLength(5)
@@ -40,7 +38,7 @@ describe('<Wishlist />', () => {
   })
 
   it('should empty when there are no games', () => {
-    renderWithTheme(<Wishlist {...props} games={[]} />)
+    render(<Wishlist {...props} games={[]} />)
 
     const games = screen.queryAllByAltText(/Population Zero/i)
     expect(games).toHaveLength(0)

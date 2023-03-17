@@ -1,6 +1,5 @@
-import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen, waitFor } from 'utils/test-utils'
 
 import PaymentOptions from '.'
 
@@ -8,9 +7,7 @@ import cardsMock from './mock'
 
 describe('<PaymentOptions />', () => {
   it('should render the saved card options and the add new card button', () => {
-    renderWithTheme(
-      <PaymentOptions handlePayment={jest.fn} cards={cardsMock} />
-    )
+    render(<PaymentOptions handlePayment={jest.fn} cards={cardsMock} />)
 
     expect(screen.getByLabelText(/3425/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/3445/i)).toBeInTheDocument()
@@ -20,9 +17,7 @@ describe('<PaymentOptions />', () => {
   })
 
   it('should handle select card when clicking on the label', async () => {
-    renderWithTheme(
-      <PaymentOptions handlePayment={jest.fn} cards={cardsMock} />
-    )
+    render(<PaymentOptions handlePayment={jest.fn} cards={cardsMock} />)
 
     const cardOption = screen.getByLabelText(/3425/i)
 
@@ -36,9 +31,7 @@ describe('<PaymentOptions />', () => {
   it('should not call handlePayment when button is disabled', () => {
     const handlePayment = jest.fn()
 
-    renderWithTheme(
-      <PaymentOptions handlePayment={handlePayment} cards={cardsMock} />
-    )
+    render(<PaymentOptions handlePayment={handlePayment} cards={cardsMock} />)
 
     const buyNowButton = screen.getByRole('button', { name: /buy now/i })
 
@@ -50,9 +43,7 @@ describe('<PaymentOptions />', () => {
   it('should call handlePayment when credit card is selected', async () => {
     const handlePayment = jest.fn()
 
-    renderWithTheme(
-      <PaymentOptions handlePayment={handlePayment} cards={cardsMock} />
-    )
+    render(<PaymentOptions handlePayment={handlePayment} cards={cardsMock} />)
 
     const cardOption = screen.getByLabelText(/3425/i)
 

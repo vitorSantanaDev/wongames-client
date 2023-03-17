@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react'
 import { Fragment } from 'react'
+import { render, screen } from 'utils/test-utils'
 
 import MediaMatch from '.'
 

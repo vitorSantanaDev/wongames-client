@@ -1,9 +1,7 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
 import { GameItemProps, PaymentInfoProps } from './types'
 
 import GameItem from '.'
+import { render, screen } from 'utils/test-utils'
 
 const props: GameItemProps = {
   image:
@@ -14,7 +12,7 @@ const props: GameItemProps = {
 
 describe('<GameItem />', () => {
   it('should render the item', () => {
-    const { container } = renderWithTheme(<GameItem {...props} />)
+    const { container } = render(<GameItem {...props} />)
 
     const itemHeading = screen.getByRole('heading', {
       name: /Red Dead Redemption 2/i
@@ -34,7 +32,7 @@ describe('<GameItem />', () => {
 
   it('should render the item with download link', () => {
     const downloadLink = 'https://link'
-    renderWithTheme(<GameItem {...props} downloadLink={downloadLink} />)
+    render(<GameItem {...props} downloadLink={downloadLink} />)
 
     const link = screen.getByRole('link', { name: `Get ${props.title} here` })
     expect(link).toHaveAttribute('href', downloadLink)
@@ -47,7 +45,7 @@ describe('<GameItem />', () => {
       number: '**** **** **** 4326',
       purchasedDate: 'Purchased made on 07/20/2023'
     }
-    renderWithTheme(<GameItem {...props} paymentInfo={paymentInfo} />)
+    render(<GameItem {...props} paymentInfo={paymentInfo} />)
 
     const flagImage = screen.getByRole('img', { name: paymentInfo.flag })
     expect(flagImage).toHaveAttribute('src', paymentInfo.image)

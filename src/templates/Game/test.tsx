@@ -1,8 +1,5 @@
 import 'match-media-mock'
 
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
 import galleryMock from 'components/Gallery/mock'
 import gameInfosMock from 'components/GameInfo/mock'
 import gameDetailsMock from 'components/GameDetails/mock'
@@ -13,6 +10,7 @@ import textContentMock from 'components/TextContent/mock'
 import { GameProps } from './types'
 
 import Game from '.'
+import { render, screen } from 'utils/test-utils'
 
 const props: GameProps = {
   cover: 'bg-image.jpg',
@@ -81,7 +79,7 @@ jest.mock('components/TextContent', () => {
 
 describe('<Game />', () => {
   it('should render the template with components', () => {
-    renderWithTheme(<Game {...props} />)
+    render(<Game {...props} />)
 
     const menuComponent = screen.getByTestId('Mock Menu')
     expect(menuComponent).toBeInTheDocument()
@@ -103,14 +101,14 @@ describe('<Game />', () => {
   })
 
   it('should not render the gallery if no images', () => {
-    renderWithTheme(<Game {...props} gallery={[]} />)
+    render(<Game {...props} gallery={[]} />)
 
     const galleryComponent = screen.queryByTestId('Mock Gallery')
     expect(galleryComponent).not.toBeInTheDocument()
   })
 
   it('should not render the gallery on mobile', () => {
-    renderWithTheme(<Game {...props} />)
+    render(<Game {...props} />)
 
     const galleryComponent = screen.getByTestId('Mock Gallery')
 
@@ -124,7 +122,7 @@ describe('<Game />', () => {
   })
 
   it('should render the cover image', () => {
-    renderWithTheme(<Game {...props} />)
+    render(<Game {...props} />)
 
     const cover = screen.getByRole('img', { name: /cover/i })
 

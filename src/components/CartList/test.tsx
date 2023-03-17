@@ -1,6 +1,4 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/test-utils'
 import gameItemsMock from './mock'
 
 import CartList from '.'
@@ -12,7 +10,7 @@ describe('<CartList />', () => {
         (acc += Number(item.price.replace('R$ ', '').replace(',', '.'))),
       0
     )
-    const { container } = renderWithTheme(
+    const { container } = render(
       <CartList items={[...gameItemsMock]} total={`R$ ${totalPriceValue}`} />
     )
 
@@ -31,7 +29,7 @@ describe('<CartList />', () => {
         (acc += Number(item.price.replace('R$ ', '').replace(',', '.'))),
       0
     )
-    renderWithTheme(
+    render(
       <CartList
         items={[...gameItemsMock]}
         total={`R$ ${totalPriceValue}`}
@@ -44,7 +42,7 @@ describe('<CartList />', () => {
   })
 
   it('should render Empty if there are no items', () => {
-    renderWithTheme(<CartList />)
+    render(<CartList />)
     const emptyDescription = screen.getByText(/your cart is empty/i)
     expect(emptyDescription).toBeInTheDocument()
 

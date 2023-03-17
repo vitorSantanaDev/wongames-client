@@ -1,6 +1,3 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
 import cartListMock from 'components/CartList/mock'
 import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
@@ -9,6 +6,7 @@ import cardsMock from 'components/PaymentOptions/mock'
 import { CartProps } from './types'
 
 import Cart from '.'
+import { render, screen } from 'utils/test-utils'
 
 const totalPrice = cartListMock
   .reduce(
@@ -73,7 +71,7 @@ jest.mock('components/Empty', () => {
 
 describe('<Cart />', () => {
   it('should render the sections', () => {
-    renderWithTheme(<Cart {...props} />)
+    render(<Cart {...props} />)
 
     const heading = screen.getByRole('heading', { name: /my cart/i })
     expect(heading).toBeInTheDocument()
@@ -95,7 +93,7 @@ describe('<Cart />', () => {
   })
 
   it('should render empty section if there are no items', () => {
-    renderWithTheme(<Cart {...props} items={[]} />)
+    render(<Cart {...props} items={[]} />)
     const emptyComponent = screen.getByTestId('Mock Empty')
     expect(emptyComponent).toBeInTheDocument()
   })

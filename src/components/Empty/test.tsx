@@ -1,6 +1,4 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/test-utils'
 import { EmptyProps } from './types'
 
 import Empty from '.'
@@ -13,7 +11,7 @@ const props: EmptyProps = {
 
 describe('<Empty />', () => {
   it('should render correctly', () => {
-    const { container } = renderWithTheme(<Empty {...props} />)
+    const { container } = render(<Empty {...props} />)
 
     const image = screen.getByRole('img', {
       name: /a gamer in a couch playing videogame/i
@@ -33,7 +31,7 @@ describe('<Empty />', () => {
   })
 
   it('should not render link when haslink is not passed', () => {
-    renderWithTheme(<Empty {...props} hasLink={false} />)
+    render(<Empty {...props} hasLink={false} />)
 
     const link = screen.queryByRole('link', { name: /go back to store/i })
     expect(link).not.toBeInTheDocument()

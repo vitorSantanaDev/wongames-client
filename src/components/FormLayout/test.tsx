@@ -1,10 +1,9 @@
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render } from 'utils/test-utils'
 import * as FormLayouts from '.'
 
 describe('<FormLayout />', () => {
   it('should render the heading', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <FormLayouts.Wrapper>
         <FormLayouts.FormExtraLink>
           My nice <a href="">Link</a>

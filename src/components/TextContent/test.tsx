@@ -1,5 +1,3 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
 import theme from 'styles/theme'
 
 import TextContent from '.'
@@ -7,12 +5,13 @@ import TextContent from '.'
 import { TextContentProps } from './types'
 
 import textContentMock from './mock'
+import { render, screen } from 'utils/test-utils'
 
 const props: TextContentProps = { ...textContentMock }
 
 describe('<TextContent />', () => {
   it('should render the title and content', () => {
-    renderWithTheme(<TextContent {...props} />)
+    render(<TextContent {...props} />)
 
     const title = screen.getByRole('heading', { name: /description/i })
     expect(title).toBeInTheDocument()
@@ -22,14 +21,14 @@ describe('<TextContent />', () => {
   })
 
   it('should render without title', () => {
-    renderWithTheme(<TextContent content={props.content} />)
+    render(<TextContent content={props.content} />)
 
     const title = screen.queryByRole('heading', { name: /description/i })
     expect(title).not.toBeInTheDocument()
   })
 
   it('should render color changes', () => {
-    renderWithTheme(<TextContent {...props} />)
+    render(<TextContent {...props} />)
 
     const wrapper = screen.getByRole('heading', {
       name: /description/i

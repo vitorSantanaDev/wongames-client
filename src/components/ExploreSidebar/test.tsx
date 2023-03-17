@@ -1,15 +1,13 @@
-import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { css } from 'styled-components'
 import { Overlay } from './styles'
-
-import { renderWithTheme } from 'utils/tests/helpers'
 
 import { ExploreSidebarProps } from './types'
 
 import ExploreSidebar from '.'
 
 import itemsMock from './mock'
+import { render, screen } from 'utils/test-utils'
 
 const props: ExploreSidebarProps = {
   items: [...itemsMock],
@@ -18,7 +16,7 @@ const props: ExploreSidebarProps = {
 
 describe('<ExploreSidebar />', () => {
   it('should render the headings  ', () => {
-    const { container } = renderWithTheme(<ExploreSidebar {...props} />)
+    const { container } = render(<ExploreSidebar {...props} />)
 
     const priceHeading = screen.getByRole('heading', { name: /price/i })
     expect(priceHeading).toBeInTheDocument()
@@ -36,7 +34,7 @@ describe('<ExploreSidebar />', () => {
   })
 
   it('should render inputs', () => {
-    renderWithTheme(<ExploreSidebar {...props} />)
+    render(<ExploreSidebar {...props} />)
 
     const under50Checkbox = screen.getByRole('checkbox', {
       name: /under \$50/i
@@ -50,14 +48,14 @@ describe('<ExploreSidebar />', () => {
   })
 
   it('should render the filter button', () => {
-    renderWithTheme(<ExploreSidebar {...props} />)
+    render(<ExploreSidebar {...props} />)
 
     const filterButton = screen.getByRole('button', { name: /filter/i })
     expect(filterButton).toBeInTheDocument()
   })
 
   it('should check initial values are passed', () => {
-    renderWithTheme(
+    render(
       <ExploreSidebar
         {...props}
         initialValues={{
@@ -80,7 +78,7 @@ describe('<ExploreSidebar />', () => {
 
   it('should filter with initial values', () => {
     const onFilter = jest.fn()
-    renderWithTheme(
+    render(
       <ExploreSidebar
         {...props}
         onFilter={onFilter}
@@ -99,7 +97,7 @@ describe('<ExploreSidebar />', () => {
 
   it('should render filter with checked values', () => {
     const onFilter = jest.fn()
-    renderWithTheme(<ExploreSidebar {...props} onFilter={onFilter} />)
+    render(<ExploreSidebar {...props} onFilter={onFilter} />)
 
     const filterButton = screen.getByRole('button', { name: /filter/i })
     const windowsCheckbox = screen.getByRole('checkbox', {
@@ -123,7 +121,7 @@ describe('<ExploreSidebar />', () => {
 
   it('should altern between radio options', () => {
     const onFilter = jest.fn()
-    renderWithTheme(<ExploreSidebar {...props} onFilter={onFilter} />)
+    render(<ExploreSidebar {...props} onFilter={onFilter} />)
 
     const highToLowRadio = screen.getByRole('radio', {
       name: /high to low/i
@@ -139,7 +137,7 @@ describe('<ExploreSidebar />', () => {
   })
 
   it('should open/close sidebar when filtering on mobile ', () => {
-    const { container } = renderWithTheme(<ExploreSidebar {...props} />)
+    const { container } = render(<ExploreSidebar {...props} />)
 
     const variant = {
       media: '(max-width: 768px)',

@@ -7,7 +7,7 @@ import formatPrice from 'utils/formatPrice'
 
 const CART_KEY = 'cartItems'
 
-const CartContextDefaultValues: CartContextData = {
+export const CartContextDefaultValues: CartContextData = {
   items: [],
   quantity: 0,
   total: '$0.00',

@@ -1,15 +1,13 @@
 import 'match-media-mock'
 
-import { fireEvent, render, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
 import galleryMock from './mock'
 
 import Gallery, { SlickButtonFix } from '.'
+import { fireEvent, render, screen } from 'utils/test-utils'
 
 describe('<Gallery />', () => {
   it('should render thumbnails as buttons', () => {
-    renderWithTheme(<Gallery items={galleryMock.slice(0, 2)} />)
+    render(<Gallery items={galleryMock.slice(0, 2)} />)
 
     const buttonOne = screen.getByRole('button', {
       name: /thumb - Gallery Image 1/i
@@ -23,7 +21,7 @@ describe('<Gallery />', () => {
   })
 
   it('should handle open modal', () => {
-    renderWithTheme(<Gallery items={galleryMock.slice(0, 2)} />)
+    render(<Gallery items={galleryMock.slice(0, 2)} />)
 
     const modalElement = screen.getByLabelText('modal')
 
@@ -41,7 +39,7 @@ describe('<Gallery />', () => {
   })
 
   it('should handle close when overlay or button clicked', () => {
-    renderWithTheme(<Gallery items={galleryMock.slice(0, 2)} />)
+    render(<Gallery items={galleryMock.slice(0, 2)} />)
 
     const modalElement = screen.getByLabelText('modal')
 
@@ -65,9 +63,7 @@ describe('<Gallery />', () => {
   })
 
   it('should handle close when Escape key is pressed', () => {
-    const { container } = renderWithTheme(
-      <Gallery items={galleryMock.slice(0, 2)} />
-    )
+    const { container } = render(<Gallery items={galleryMock.slice(0, 2)} />)
 
     const modalElement = screen.getByLabelText('modal')
 
@@ -89,7 +85,7 @@ describe('<Gallery />', () => {
   })
 
   it('should open modal with selected image', async () => {
-    renderWithTheme(<Gallery items={galleryMock.slice(0, 2)} />)
+    render(<Gallery items={galleryMock.slice(0, 2)} />)
 
     const thumb = screen.getByRole('button', {
       name: /thumb - Gallery Image 1/i

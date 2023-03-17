@@ -1,6 +1,4 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/test-utils'
 import GameInfo from '.'
 import { GameInfoProps } from './types'
 
@@ -12,7 +10,7 @@ const props: GameInfoProps = {
 
 describe('<GameInfo />', () => {
   it('should render game informations', () => {
-    const { container } = renderWithTheme(<GameInfo {...props} />)
+    const { container } = render(<GameInfo {...props} />)
 
     const heading = screen.getByRole('heading', { name: /My game title/i })
     expect(heading).toBeInTheDocument()
@@ -29,7 +27,7 @@ describe('<GameInfo />', () => {
   })
 
   it('should render buttons', () => {
-    renderWithTheme(<GameInfo {...props} />)
+    render(<GameInfo {...props} />)
 
     const buttonAddToCart = screen.getByRole('button', { name: /add to cart/i })
     expect(buttonAddToCart).toBeInTheDocument()

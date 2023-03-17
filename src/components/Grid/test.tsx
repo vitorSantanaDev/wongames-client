@@ -1,10 +1,9 @@
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render } from 'utils/test-utils'
 import { Grid } from '.'
 
 describe('<Grid />', () => {
   it('should render the correctly', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <Grid>
         <h1>Children 1</h1>
         <h1>Children 2</h1>

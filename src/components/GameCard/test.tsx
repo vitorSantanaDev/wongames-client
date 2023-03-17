@@ -1,6 +1,5 @@
-import { fireEvent, screen } from '@testing-library/react'
 import theme from 'styles/theme'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { fireEvent, render, screen } from 'utils/test-utils'
 
 import GameCard from '.'
 
@@ -15,7 +14,7 @@ const props = {
 
 describe('<GameCard />', () => {
   it('should render correctly', () => {
-    const { container } = renderWithTheme(<GameCard {...props} />)
+    const { container } = render(<GameCard {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /population zero/i })
@@ -42,7 +41,7 @@ describe('<GameCard />', () => {
   })
 
   it('should render price in label', () => {
-    renderWithTheme(<GameCard {...props} />)
+    render(<GameCard {...props} />)
 
     const price = screen.getByText(`$${props.price}.00`)
 
@@ -51,7 +50,7 @@ describe('<GameCard />', () => {
   })
 
   it('should render a line-through in price when promotional', () => {
-    renderWithTheme(<GameCard promotionalPrice={14} {...props} />)
+    render(<GameCard promotionalPrice={14} {...props} />)
 
     const price = screen.getByText(`$${props.price}.00`)
 
@@ -62,7 +61,7 @@ describe('<GameCard />', () => {
   })
 
   it('should render the promotional price than the regular price', () => {
-    renderWithTheme(<GameCard promotionalPrice={14} {...props} />)
+    render(<GameCard promotionalPrice={14} {...props} />)
 
     const promotionalPriceIsLessThanPrice = props.price > 14
 
@@ -70,7 +69,7 @@ describe('<GameCard />', () => {
   })
 
   it('should render a filled favorite icon when favorite is true', () => {
-    renderWithTheme(<GameCard promotionalPrice={14} {...props} favorite />)
+    render(<GameCard promotionalPrice={14} {...props} favorite />)
 
     expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
   })
@@ -78,7 +77,7 @@ describe('<GameCard />', () => {
   it('should call onFav method when favorite is clicked', () => {
     const onFav = jest.fn()
 
-    renderWithTheme(
+    render(
       <GameCard promotionalPrice={14} {...props} favorite onFavorite={onFav} />
     )
 
@@ -88,7 +87,7 @@ describe('<GameCard />', () => {
   })
 
   it('should render a Ribbon', () => {
-    renderWithTheme(
+    render(
       <GameCard
         ribbonSize="small"
         ribbon="My Ribbon"

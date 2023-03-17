@@ -1,11 +1,9 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/test-utils'
 import FormSignUp from '.'
 
 describe('<FormSignUp />', () => {
   it('should render the form', () => {
-    const { container } = renderWithTheme(<FormSignUp />)
+    const { container } = render(<FormSignUp />)
 
     const inputName = screen.getByPlaceholderText(/name/i)
     expect(inputName).toBeInTheDocument()
@@ -26,7 +24,7 @@ describe('<FormSignUp />', () => {
   })
 
   it('should render text and link to sign in', () => {
-    renderWithTheme(<FormSignUp />)
+    render(<FormSignUp />)
 
     const toSignInLink = screen.getByText(/Already have an account?/i)
 

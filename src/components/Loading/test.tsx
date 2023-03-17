@@ -1,10 +1,9 @@
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render } from 'utils/test-utils'
 import Loading from '.'
 
 describe('<Loading />', () => {
   it('should render Loading correctly', () => {
-    const { container } = renderWithTheme(<Loading />)
+    const { container } = render(<Loading />)
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
         display: inline-block;
