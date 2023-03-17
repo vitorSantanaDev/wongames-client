@@ -37,7 +37,7 @@ export interface GameDetails extends Game {
 }
 
 export type QueryGamesQueryVariables = {
-  limit: number
+  limit?: number
   start?: number
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   where?: any
