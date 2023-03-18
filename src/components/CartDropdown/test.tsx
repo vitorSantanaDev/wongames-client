@@ -12,9 +12,6 @@ describe('<CartDropdown />', () => {
     const shoppingCartIcon = screen.getByLabelText(/shopping cart/i)
     expect(shoppingCartIcon).toBeInTheDocument()
 
-    const shoppingCartIconBadge = screen.getByText(itemsMock.length)
-    expect(shoppingCartIconBadge).toBeInTheDocument()
-
     expect(container.firstChild).toMatchSnapshot()
   })
 

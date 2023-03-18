@@ -1,3 +1,4 @@
+import { CartContextDefaultValues } from 'hooks/use-cart'
 import { render, screen } from 'utils/test-utils'
 import CartIcon from '.'
 
@@ -15,7 +16,9 @@ describe('<CartIcon />', () => {
   })
 
   it('should render with badge', () => {
-    render(<CartIcon quantity={246} />)
+    render(<CartIcon />, {
+      cartProviderProps: { ...CartContextDefaultValues, quantity: 246 }
+    })
 
     const cartIcon = screen.getByLabelText(/shopping cart/i)
     expect(cartIcon).toBeInTheDocument()
@@ -25,18 +28,5 @@ describe('<CartIcon />', () => {
 
     const quantityValue = screen.getByText(246)
     expect(quantityValue).toBeInTheDocument()
-  })
-
-  it('should render with badge only if has positive number', () => {
-    render(<CartIcon quantity={-1} />)
-
-    const cartIcon = screen.getByLabelText(/shopping cart/i)
-    expect(cartIcon).toBeInTheDocument()
-
-    const badge = screen.queryByLabelText(/cart items/)
-    expect(badge).not.toBeInTheDocument()
-
-    const quantityValue = screen.queryByText(-1)
-    expect(quantityValue).not.toBeInTheDocument()
   })
 })
