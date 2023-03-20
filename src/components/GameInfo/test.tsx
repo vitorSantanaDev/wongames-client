@@ -3,6 +3,7 @@ import GameInfo from '.'
 import { GameInfoProps } from './types'
 
 const props: GameInfoProps = {
+  id: '1',
   title: 'My game title',
   price: 215.88,
   description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
@@ -24,15 +25,5 @@ describe('<GameInfo />', () => {
     expect(price).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
-  })
-
-  it('should render buttons', () => {
-    render(<GameInfo {...props} />)
-
-    const buttonAddToCart = screen.getByRole('button', { name: /add to cart/i })
-    expect(buttonAddToCart).toBeInTheDocument()
-
-    const buttonWishlist = screen.getByRole('button', { name: /wishlist/i })
-    expect(buttonWishlist).toBeInTheDocument()
   })
 })

@@ -619,6 +619,7 @@ exports[`<ShowCase /> should render full ShowCase 1`] = `
                       >
                         <svg
                           aria-hidden="true"
+                          aria-label="Add to cart"
                           class="c21"
                           fill="currentColor"
                           focusable="false"
