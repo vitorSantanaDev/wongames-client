@@ -1,5 +1,4 @@
 import Base from 'templates/Base'
-import Empty from 'components/Empty'
 import Heading from 'components/Heading'
 import CartList from 'components/CartList'
 import ShowCase from 'components/ShowCase'
@@ -13,8 +12,6 @@ import { CartProps } from './types'
 import * as S from './styles'
 
 const Cart = ({
-  items,
-  total,
   cards,
   recommendedGames,
   recommendedTitle,
@@ -27,18 +24,10 @@ const Cart = ({
         <Heading lineLeft lineColor="secondary">
           My cart
         </Heading>
-        {!!items && items.length ? (
-          <S.Content>
-            <CartList items={items} total={total} />
-            <PaymentOptions handlePayment={handlePayment} cards={cards} />
-          </S.Content>
-        ) : (
-          <Empty
-            hasLink
-            title="Your cart is empty"
-            description="Go back to the store and explore great games and offers"
-          />
-        )}
+        <S.Content>
+          <CartList />
+          <PaymentOptions handlePayment={handlePayment} cards={cards} />
+        </S.Content>
         <Divider />
       </Container>
       <ShowCase

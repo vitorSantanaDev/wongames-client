@@ -83,6 +83,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         label: image.label
       })),
       gameInfo: {
+        id: game.id,
         title: game.name,
         price: game.price,
         description: game.short_description

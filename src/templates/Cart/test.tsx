@@ -1,4 +1,3 @@
-import cartListMock from 'components/CartList/mock'
 import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import cardsMock from 'components/PaymentOptions/mock'
@@ -8,18 +7,8 @@ import { CartProps } from './types'
 import Cart from '.'
 import { render, screen } from 'utils/test-utils'
 
-const totalPrice = cartListMock
-  .reduce(
-    (acc, item) =>
-      (acc += Number(item.price.replace('R$ ', '').replace(',', '.'))),
-    0
-  )
-  .toFixed(2)
-
 const props: CartProps = {
   cards: [...cardsMock],
-  total: `R$ ${totalPrice}`,
-  items: [...cartListMock],
   recommendedGames: [...gamesMock],
   recommendedHighlight: { ...highlightMock }
 }
@@ -90,11 +79,5 @@ describe('<Cart />', () => {
 
     const emptyComponent = screen.queryByTestId('Mock Empty')
     expect(emptyComponent).not.toBeInTheDocument()
-  })
-
-  it('should render empty section if there are no items', () => {
-    render(<Cart {...props} items={[]} />)
-    const emptyComponent = screen.getByTestId('Mock Empty')
-    expect(emptyComponent).toBeInTheDocument()
   })
 })
