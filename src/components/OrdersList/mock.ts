@@ -2,8 +2,8 @@ import { GameItemProps } from 'components/GameItem/types'
 
 export default [
   {
-    image:
-      'https://images.hdqwalls.com/download/cyberpunk-biker-gang-4k-cf-1360x768.jpg',
+    id: '2',
+    img: 'https://images.hdqwalls.com/download/cyberpunk-biker-gang-4k-cf-1360x768.jpg',
     title: 'Red Dead Redemption 2',
     price: 'R$ 215,00',
     downloadLink: 'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
@@ -15,8 +15,8 @@ export default [
     }
   },
   {
-    image:
-      'https://images.hdqwalls.com/download/cyberpunk-biker-gang-4k-cf-1360x768.jpg',
+    id: '3',
+    img: 'https://images.hdqwalls.com/download/cyberpunk-biker-gang-4k-cf-1360x768.jpg',
     title: 'Red Dead Redemption 2',
     price: 'R$ 215,00',
     downloadLink: 'https://wongames.com/game/download/kjhejl867asd76DEh',
