@@ -1,41 +1,31 @@
 import { render, screen } from 'utils/test-utils'
+import { CartContextDefaultValues } from 'hooks/use-cart'
 import gameItemsMock from './mock'
 
 import CartList from '.'
 
 describe('<CartList />', () => {
   it('should render the heading', () => {
-    const totalPriceValue = gameItemsMock.reduce(
-      (acc, item) =>
-        (acc += Number(item.price.replace('R$ ', '').replace(',', '.'))),
-      0
-    )
-    const { container } = render(
-      <CartList items={[...gameItemsMock]} total={`R$ ${totalPriceValue}`} />
-    )
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      items: gameItemsMock,
+      total: '$330.00'
+    }
+    const { container } = render(<CartList />, { cartProviderProps })
 
     const headings = screen.getAllByRole('heading')
     expect(headings).toHaveLength(2)
-
-    const totalPrice = screen.getByText(`R$ ${totalPriceValue}`)
-    expect(totalPrice).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the button', () => {
-    const totalPriceValue = gameItemsMock.reduce(
-      (acc, item) =>
-        (acc += Number(item.price.replace('R$ ', '').replace(',', '.'))),
-      0
-    )
-    render(
-      <CartList
-        items={[...gameItemsMock]}
-        total={`R$ ${totalPriceValue}`}
-        hasButton
-      />
-    )
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      items: gameItemsMock
+    }
+
+    render(<CartList hasButton />, { cartProviderProps })
 
     const button = screen.getByText(/buy it now/i)
     expect(button).toBeInTheDocument()

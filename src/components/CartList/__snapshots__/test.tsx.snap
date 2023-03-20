@@ -200,7 +200,7 @@ exports[`<CartList /> should render the heading 1`] = `
     <span
       class="c8"
     >
-      R$ 605
+      $330.00
     </span>
   </div>
 </div>
