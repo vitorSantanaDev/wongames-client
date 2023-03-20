@@ -4,8 +4,8 @@ import GameItem from '.'
 import { render, screen } from 'utils/test-utils'
 
 const props: GameItemProps = {
-  image:
-    'https://images.hdqwalls.com/download/cyberpunk-biker-gang-4k-cf-1360x768.jpg',
+  id: '2',
+  img: 'https://images.hdqwalls.com/download/cyberpunk-biker-gang-4k-cf-1360x768.jpg',
   price: 'R$ 215,00',
   title: 'Red Dead Redemption 2'
 }
@@ -25,7 +25,7 @@ describe('<GameItem />', () => {
     const itemImage = screen.getByRole('img', {
       name: /Red Dead Redemption 2/i
     })
-    expect(itemImage).toHaveAttribute('src', props.image)
+    expect(itemImage).toHaveAttribute('src', props.img)
 
     expect(container.firstChild).toMatchSnapshot()
   })

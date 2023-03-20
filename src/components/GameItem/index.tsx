@@ -4,7 +4,7 @@ import { GameItemProps } from './types'
 import * as S from './styles'
 
 const GameItem = ({
-  image,
+  img,
   price,
   title,
   paymentInfo,
@@ -14,7 +14,7 @@ const GameItem = ({
     <S.GameContent>
       <S.ImageBox>
         {/*eslint-disable-next-line @next/next/no-img-element*/}
-        <img src={image} alt={title} />
+        <img src={img} alt={title} />
       </S.ImageBox>
       <S.Content>
         <S.Title>

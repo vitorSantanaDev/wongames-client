@@ -6,8 +6,8 @@ export default {
   title: 'GameItem',
   component: GameItem,
   args: {
-    image:
-      'https://images.hdqwalls.com/download/cyberpunk-biker-gang-4k-cf-1360x768.jpg',
+    id: '1',
+    img: 'https://images.hdqwalls.com/download/cyberpunk-biker-gang-4k-cf-1360x768.jpg',
     price: 'R$ 215,00',
     title: 'Red Dead Redemption 2'
   }
