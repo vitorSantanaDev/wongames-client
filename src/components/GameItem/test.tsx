@@ -2,6 +2,8 @@ import { GameItemProps, PaymentInfoProps } from './types'
 
 import GameItem from '.'
 import { render, screen } from 'utils/test-utils'
+import { CartContextDefaultValues } from 'hooks/use-cart'
+import userEvent from '@testing-library/user-event'
 
 const props: GameItemProps = {
   id: '2',
@@ -36,6 +38,21 @@ describe('<GameItem />', () => {
 
     const link = screen.getByRole('link', { name: `Get ${props.title} here` })
     expect(link).toHaveAttribute('href', downloadLink)
+  })
+
+  it('should render remove if the item is inside the cart and call remove', () => {
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      isInCart: () => true,
+      removeFromCart: jest.fn()
+    }
+    render(<GameItem {...props} />, { cartProviderProps })
+
+    const removeLink = screen.getByText(/remove/i)
+    expect(removeLink).toBeInTheDocument()
+
+    userEvent.click(removeLink)
+    expect(cartProviderProps.removeFromCart).toHaveBeenCalledWith('2')
   })
 
   it('should render the the payment info', () => {

@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 export const GameContent = styled.div`
   ${() => css`
     display: flex;
+    width: 100%;
   `}
 `
 
@@ -40,6 +41,7 @@ export const ImageBox = styled.div`
 `
 
 export const Content = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -57,6 +59,21 @@ export const Title = styled.h3`
       font-size: 2rem;
       line-height: 2rem;
     `}
+  `}
+`
+
+export const Group = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const Remove = styled.div`
+  ${({ theme }) => css`
+    cursor: pointer;
+    color: ${theme.colors.primary};
+    font-size: ${theme.font.sizes.small};
   `}
 `
 
