@@ -11,6 +11,7 @@ exports[`<GameItem /> should render the item 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
 }
 
 .c2 {
@@ -29,6 +30,7 @@ exports[`<GameItem /> should render the item 1`] = `
 }
 
 .c3 {
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -51,6 +53,22 @@ exports[`<GameItem /> should render the item 1`] = `
 }
 
 .c5 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
   color: #FAFAFA;
   font-weight: 600;
   padding: 0.2rem 0.8rem;
@@ -105,11 +123,15 @@ exports[`<GameItem /> should render the item 1`] = `
       >
         Red Dead Redemption 2
       </h3>
-      <p
+      <div
         class="c5"
       >
-        R$ 215,00
-      </p>
+        <p
+          class="c6"
+        >
+          R$ 215,00
+        </p>
+      </div>
     </div>
   </div>
 </div>
