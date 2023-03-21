@@ -6,7 +6,6 @@ import GameItem from 'components/GameItem'
 import { CartListProps } from './types'
 
 import * as S from './styles'
-import { Fragment } from 'react'
 import Empty from 'components/Empty'
 import { useCart } from 'hooks/use-cart'
 
