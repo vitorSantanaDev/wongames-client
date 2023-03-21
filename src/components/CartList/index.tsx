@@ -10,15 +10,28 @@ import { Fragment } from 'react'
 import Empty from 'components/Empty'
 import { useCart } from 'hooks/use-cart'
 
+import CartListLoader from 'components/CartListLoader'
+
 const CartList = ({ hasButton = false }: CartListProps) => {
-  const { items, total } = useCart()
+  const { items, total, loading } = useCart()
+
+  if (loading) {
+    return (
+      <S.Loader>
+        <CartListLoader />
+      </S.Loader>
+    )
+  }
+
   return (
     <S.Wrapper isEmpty={!items?.length}>
       {!!items && !!items.length ? (
-        <Fragment>
-          {items.map((item) => (
-            <GameItem key={item.title} {...item} />
-          ))}
+        <>
+          <S.GamesList>
+            {items.map((item) => (
+              <GameItem key={item.title} {...item} />
+            ))}
+          </S.GamesList>
           <S.CartListFooter>
             {!hasButton && <span>Total: </span>}
             <S.Total>{total}</S.Total>
@@ -28,7 +41,7 @@ const CartList = ({ hasButton = false }: CartListProps) => {
               </Link>
             )}
           </S.CartListFooter>
-        </Fragment>
+        </>
       ) : (
         <Empty
           hasLink

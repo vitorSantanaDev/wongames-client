@@ -31,6 +31,19 @@ describe('<CartList />', () => {
     expect(button).toBeInTheDocument()
   })
 
+  it('should render loading', () => {
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      items: gameItemsMock,
+      loading: true
+    }
+
+    render(<CartList hasButton />, { cartProviderProps })
+
+    const loading = screen.getByText(/loading/i)
+    expect(loading).toBeInTheDocument()
+  })
+
   it('should render Empty if there are no items', () => {
     render(<CartList />)
     const emptyDescription = screen.getByText(/your cart is empty/i)
