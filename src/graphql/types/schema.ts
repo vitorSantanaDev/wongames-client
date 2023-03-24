@@ -130,3 +130,21 @@ export type QueryUpcomingQuery = {
   upcomingGames: Game[]
   showCase: { upcomingHighlight: Pick<Seciton, 'title' | 'highlight'> }
 }
+
+//** =============** MUTATIONS TYPES **=================== **//
+
+export type UserRegisterInput = {
+  username: string
+  email: string
+  password: string
+}
+
+export type MutationRegisterVariables = {
+  input: UserRegisterInput
+}
+
+export type MutationResgiterMutation = {
+  register: {
+    jwt: string
+  }
+}

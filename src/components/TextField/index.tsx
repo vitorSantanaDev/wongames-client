@@ -8,7 +8,7 @@ const TextField = ({
   label,
   name,
   error,
-  onInput,
+  onInputChange,
   disabled = false,
   initialValue = '',
   iconPosition = 'left',
@@ -20,7 +20,7 @@ const TextField = ({
     const newValue = event.currentTarget.value
     setValue(newValue)
 
-    !!onInput && onInput(newValue)
+    !!onInputChange && onInputChange(newValue)
   }
 
   return (

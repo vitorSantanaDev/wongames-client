@@ -27,7 +27,7 @@ describe('<UserDropdown />', () => {
     const wishlistLink = screen.getByRole('link', { name: /wishlist/i })
     expect(wishlistLink).toBeInTheDocument()
 
-    const signOutLink = screen.getByRole('link', { name: /sign out/i })
+    const signOutLink = screen.getByRole('button', { name: /sign out/i })
     expect(signOutLink).toBeInTheDocument()
   })
 })

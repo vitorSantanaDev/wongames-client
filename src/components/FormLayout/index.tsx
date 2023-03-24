@@ -17,6 +17,13 @@ export const Wrapper = styled.div`
   `}
 `
 
+export const FormLoading = styled.img.attrs(() => ({
+  src: '/img/dots.svg',
+  alt: 'Waiting...'
+}))`
+  width: 4rem;
+`
+
 export const FormExtraLink = styled.div`
   ${({ theme }) => css`
     text-align: center;

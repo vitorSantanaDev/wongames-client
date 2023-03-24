@@ -1,3 +1,4 @@
+import { useSession } from 'next-auth/react'
 import { BaseProps } from './types'
 
 import Menu from 'components/Menu'
@@ -6,18 +7,21 @@ import { Container } from 'components/Container'
 
 import * as S from './styles'
 
-const Base = ({ children }: BaseProps) => (
-  <S.Wrapper>
-    <Container>
-      <Menu username="Vitor" />
-    </Container>
-    <S.Content>{children}</S.Content>
-    <S.SectionFooter>
+const Base = ({ children }: BaseProps) => {
+  const { data: session } = useSession()
+  return (
+    <S.Wrapper>
       <Container>
-        <Footer />
+        <Menu username={session?.user?.name} />
       </Container>
-    </S.SectionFooter>
-  </S.Wrapper>
-)
+      <S.Content>{children}</S.Content>
+      <S.SectionFooter>
+        <Container>
+          <Footer />
+        </Container>
+      </S.SectionFooter>
+    </S.Wrapper>
+  )
+}
 
 export default Base

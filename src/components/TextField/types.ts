@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from 'react'
 
 export type TextFieldProps = {
-  onInput?: (value: string) => void
+  onInputChange?: (value: string) => void
   error?: string
   label?: string
   disabled?: boolean

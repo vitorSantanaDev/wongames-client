@@ -35,7 +35,7 @@ export const Link = styled.a<LinkProps>`
     display: flex;
     align-items: center;
     text-decoration: none;
-
+    cursor: pointer;
     padding: ${theme.spacings.xsmall} ${theme.spacings.small};
     transition: background, color, ${theme.transition.default};
 
