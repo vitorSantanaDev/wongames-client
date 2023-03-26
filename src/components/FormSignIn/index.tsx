@@ -22,7 +22,8 @@ const FormSignIn = () => {
   })
 
   const [loading, setLoading] = useState(false)
-  const { push } = useRouter()
+  const routes = useRouter()
+  const { push, query } = routes
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
@@ -41,7 +42,7 @@ const FormSignIn = () => {
     const result = await signIn('credentials', {
       ...values,
       redirect: false,
-      callbackUrl: '/'
+      callbackUrl: `${window.location.origin}${query?.callbackUrl || ''}`
     })
 
     if (result?.url) {
