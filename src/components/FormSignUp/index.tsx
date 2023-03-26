@@ -7,7 +7,12 @@ import {
   MutationResgiterMutation,
   MutationRegisterVariables
 } from 'graphql/types/schema'
-import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
+import {
+  AccountCircle,
+  Email,
+  ErrorOutline,
+  Lock
+} from '@styled-icons/material-outlined'
 
 import { MUTATION_REGISTER } from 'graphql/mutations/register'
 
@@ -15,8 +20,11 @@ import Button from 'components/Button'
 import TextField from 'components/TextField'
 
 import * as FormLayouts from 'components/FormLayout'
+import { FieldErros, signUpValidate } from 'utils/validations'
 
 const FormSignUp = () => {
+  const [formError, setFormError] = useState('')
+  const [fieldError, setFieldError] = useState<FieldErros>({})
   const [values, setValues] = useState<UserRegisterInput>({
     email: '',
     username: '',
@@ -27,7 +35,10 @@ const FormSignUp = () => {
     MutationResgiterMutation,
     MutationRegisterVariables
   >(MUTATION_REGISTER, {
-    onError: (err) => console.log(err),
+    onError: (err) => {
+      if (err.graphQLErrors.length)
+        setFormError('Email or username already exists')
+    },
     onCompleted: () => {
       !error &&
         signIn('credentials', {
@@ -40,11 +51,23 @@ const FormSignUp = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
+    setFormError('')
 
-    await createUser({
+    const errors = signUpValidate(values)
+
+    if (Object.keys(errors).length) {
+      setFieldError(errors)
+      return
+    }
+
+    setFieldError({})
+
+    createUser({
       variables: {
         input: {
-          ...values
+          username: values.username,
+          email: values.email,
+          password: values.password
         }
       }
     })
@@ -56,12 +79,19 @@ const FormSignUp = () => {
 
   return (
     <FormLayouts.Wrapper>
+      {!!formError && (
+        <FormLayouts.FormError>
+          <ErrorOutline />
+          {formError}
+        </FormLayouts.FormError>
+      )}
       <form onSubmit={handleSubmit}>
         <TextField
           type="text"
           name="username"
           icon={<AccountCircle />}
           placeholder="Name"
+          error={fieldError?.username}
           onInputChange={(value) => handleInputChange('username', value)}
         />
         <TextField
@@ -69,6 +99,7 @@ const FormSignUp = () => {
           name="email"
           icon={<Email />}
           placeholder="Email"
+          error={fieldError?.email}
           onInputChange={(value) => handleInputChange('email', value)}
         />
         <TextField
@@ -76,16 +107,18 @@ const FormSignUp = () => {
           name="password"
           icon={<Lock />}
           placeholder="Password"
+          error={fieldError?.password}
           onInputChange={(value) => handleInputChange('password', value)}
         />
         <TextField
           type="password"
-          name="confirm-password"
+          name="confirm_password"
           icon={<Lock />}
           placeholder="Confirm Password"
-          // onInputChange={(value) =>
-          //   handleInputChange('confirm-password', value)
-          // }
+          error={fieldError?.confirm_password}
+          onInputChange={(value) =>
+            handleInputChange('confirm_password', value)
+          }
         />
 
         <Button disabled={loading} type="submit" size="large" fullWidth>

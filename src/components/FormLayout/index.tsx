@@ -24,6 +24,23 @@ export const FormLoading = styled.img.attrs(() => ({
   width: 4rem;
 `
 
+export const FormError = styled.div`
+  ${({ theme }) => css`
+    text-align: center;
+    color: red;
+    font-size: ${theme.font.sizes.small};
+
+    display: flex;
+    gap: 0.2rem;
+
+    align-items: center;
+
+    svg {
+      width: 1.6rem;
+    }
+  `}
+`
+
 export const FormExtraLink = styled.div`
   ${({ theme }) => css`
     text-align: center;
