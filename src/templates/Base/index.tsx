@@ -8,11 +8,11 @@ import { Container } from 'components/Container'
 import * as S from './styles'
 
 const Base = ({ children }: BaseProps) => {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   return (
     <S.Wrapper>
       <Container>
-        <Menu username={session?.user?.name} />
+        <Menu username={session?.user?.name} loading={status === 'loading'} />
       </Container>
       <S.Content>{children}</S.Content>
       <S.SectionFooter>

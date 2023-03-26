@@ -50,4 +50,11 @@ describe('<Menu />', () => {
     expect(screen.getAllByText(/my profile/i)).toHaveLength(2)
     expect(screen.getAllByText(/wishlist/i)).toHaveLength(2)
   })
+
+  it('should not show sign in or userDropdown if loading', () => {
+    render(<Menu username="Vitor" loading />)
+
+    expect(screen.queryByText(/my profile/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument()
+  })
 })
