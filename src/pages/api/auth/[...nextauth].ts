@@ -1,24 +1,23 @@
-import NextAuth, { AuthOptions } from 'next-auth'
-import { NextApiRequest, NextApiResponse } from 'next'
-import CredentialsProvider from 'next-auth/providers/credentials'
+import NextAuth, { User } from 'next-auth'
+import { Session } from 'next-auth'
+import { JWT } from 'next-auth/jwt'
+import Providers from 'next-auth/providers'
+import { NextApiRequest, NextApiResponse } from 'next-auth/internals/utils'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type GenericObject = { [key: string]: any }
+type AuthorizeProps = {
+  email: string
+  password: string
+}
 
-const options: AuthOptions = {
+const options = {
   pages: {
     signIn: '/sign-in'
   },
   providers: [
-    CredentialsProvider({
+    Providers.Credentials({
       name: 'Sign-in',
       credentials: {},
-      async authorize(credentials) {
-        const { email, password } = credentials as {
-          email: string
-          password: string
-        }
-
+      async authorize({ email, password }: AuthorizeProps) {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/auth/local`,
           {
@@ -30,7 +29,7 @@ const options: AuthOptions = {
         const data = await response.json()
 
         if (data.user) {
-          return { ...data.user, name: data.user.username, jwt: data.jwt }
+          return { ...data.user, jwt: data.jwt }
         } else {
           return null
         }
@@ -38,12 +37,20 @@ const options: AuthOptions = {
     })
   ],
   callbacks: {
-    async session({ session, token }: GenericObject) {
-      session.jwt = token.jwt
-      session.id = token.id
+    session: async (session: Session, user: User) => {
+      session.jwt = user.jwt
+      session.id = user.id
+
       return Promise.resolve(session)
     },
-    async jwt({ token }: GenericObject) {
+    jwt: async (token: JWT, user: User) => {
+      if (user) {
+        token.id = user.id
+        token.email = user.email
+        token.name = user.username as string
+        token.jwt = user.jwt
+      }
+
       return Promise.resolve(token)
     }
   }

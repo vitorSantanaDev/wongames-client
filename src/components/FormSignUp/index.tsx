@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
-import { signIn } from 'next-auth/react'
+import { signIn } from 'next-auth/client'
 import { useMutation } from '@apollo/client'
 import {
   UserRegisterInput,

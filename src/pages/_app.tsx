@@ -7,7 +7,7 @@ import { useApollo } from 'utils/apollo'
 import { CartProvider } from 'hooks/use-cart'
 import { ApolloProvider } from '@apollo/client'
 import { ThemeProvider } from 'styled-components'
-import { SessionProvider as AuthProvider } from 'next-auth/react'
+import { Provider as AuthProvider } from 'next-auth/client'
 
 import GlobalStyles from 'styles/global'
 
