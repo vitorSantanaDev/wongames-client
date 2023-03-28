@@ -131,6 +131,13 @@ export type QueryUpcomingQuery = {
   showCase: { upcomingHighlight: Pick<Seciton, 'title' | 'highlight'> }
 }
 
+export type QueryProfileMeQuery = {
+  me: {
+    username: string
+    email: string
+  }
+}
+
 //** =============** MUTATIONS TYPES **=================== **//
 
 export type UserRegisterInput = {

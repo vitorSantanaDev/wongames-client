@@ -131,20 +131,20 @@ exports[`<FormProfile /> should render the profile form 1`] = `
     >
       <label
         class="c2"
-        for="name"
+        for="username"
       >
-        Name
+        Username
       </label>
       <div
         class="c3"
       >
         <input
           class="c4"
-          id="name"
-          name="name"
-          placeholder="Name"
+          id="username"
+          name="username"
+          placeholder="Username"
           type="text"
-          value="Jhon Doe"
+          value=""
         />
       </div>
     </div>
@@ -168,7 +168,7 @@ exports[`<FormProfile /> should render the profile form 1`] = `
           name="email"
           placeholder="E-mail"
           type="email"
-          value="jhondoe@gamil.com"
+          value=""
         />
       </div>
     </div>

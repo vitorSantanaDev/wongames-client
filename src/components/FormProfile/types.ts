@@ -1,2 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type FormProfileProps = {}
+export type FormProfileProps = {
+  username?: string
+  email?: string
+}
