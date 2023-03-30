@@ -81,7 +81,9 @@ const FormSignIn = () => {
           error={fieldError?.password}
           onInputChange={(value) => handleInputChange('password', value)}
         />
-        <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
+        <Link href="/forgot-password" passHref>
+          <S.ForgotPassword>Forgot your password?</S.ForgotPassword>
+        </Link>
         <Button disabled={loading} type="submit" size="large" fullWidth>
           {loading ? <FormLayouts.FormLoading /> : 'Sign in now'}
         </Button>
