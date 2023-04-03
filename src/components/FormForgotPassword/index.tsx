@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react'
+import { useRouter } from 'next/router'
 
 import {
   Email,
@@ -14,12 +15,13 @@ import { FieldErros, forgotValidate } from 'utils/validations'
 import * as FormLayouts from 'components/FormLayout'
 
 const FormForgotPassword = () => {
+  const { query } = useRouter()
   const [formError, setFormError] = useState('')
   const [fieldError, setFieldError] = useState<FieldErros>({})
   const [success, setSuccess] = useState(false)
 
   const [values, setValues] = useState({
-    email: ''
+    email: (query.email as string) || ''
   })
 
   const [loading, setLoading] = useState(false)
@@ -81,6 +83,7 @@ const FormForgotPassword = () => {
               name="email"
               icon={<Email />}
               placeholder="Email"
+              initialValue={query.email as string}
               error={fieldError?.email}
               onInputChange={(value) => handleInputChange('email', value)}
             />

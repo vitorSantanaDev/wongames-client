@@ -25,3 +25,13 @@ export const Form = styled.form`
     `}
   `}
 `
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  ${media.greaterThan('medium')`
+      grid-column: 2;
+  `}
+`
