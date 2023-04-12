@@ -1,9 +1,15 @@
-global.fetch = require('node-fetch')
+global.fetch = require('jest-fetch-mock')
 
 import { server } from '../src/utils/mockServer/server'
 
-beforeAll(() => server.listen())
+beforeAll(() => {
+  server.listen()
+})
 
-afterEach(() => server.resetHandlers())
+afterEach(() => {
+  server.resetHandlers()
+})
 
-afterAll(() => server.close())
+afterAll(() => {
+  server.close()
+})
