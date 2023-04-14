@@ -138,6 +138,14 @@ export type QueryProfileMeQuery = {
   }
 }
 
+export type QueryWishlistQueryVariables = {
+  where: { user: { email: string } }
+}
+
+export type QueryWishlistQuery = {
+  wishlists: Wishlist[]
+}
+
 //** =============** MUTATIONS TYPES **=================== **//
 
 export type UserRegisterInput = {
@@ -155,3 +163,43 @@ export type MutationResgiterMutation = {
     jwt: string
   }
 }
+
+export type Wishlist = {
+  id: number | string
+  user: {
+    id: number | string
+    username: string
+  }
+  games: Partial<Game>[]
+}
+
+export type CreateWishlistInput = {
+  data: {
+    games: Partial<Game>[]
+  }
+}
+
+export type MutationCreateWishlistVariables = {
+  input: CreateWishlistInput
+}
+
+export type MutationCreateWishListMutation = {
+  wishlist: Wishlist
+}
+
+export type UpdateWishListInput = {
+  input: {
+    where: {
+      id: number | string
+    }
+    data: {
+      games: Partial<Game>[]
+    }
+  }
+}
+
+export type MutationUpdateWishlistVariables = {
+  input: UpdateWishListInput
+}
+
+export type MutationUpdateWishListMutation = MutationCreateWishListMutation
