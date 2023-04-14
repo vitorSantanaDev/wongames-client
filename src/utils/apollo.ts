@@ -14,10 +14,13 @@ function createApolloClient(session?: Session | null) {
     uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql`
   })
 
-  const authLink = setContext(async (_, { headers }) => {
-    const authorization = session?.jwt ? `Bearer ${session.jwt}` : ''
-    return { headers: { ...headers, authorization } }
-  })
+  const authLink = setContext(
+    async (_, { headers, session: clientSession }) => {
+      const jwt = session?.jwt || clientSession?.jwt || ''
+      const authorization = jwt ? `Bearer ${jwt}` : ''
+      return { headers: { ...headers, authorization } }
+    }
+  )
 
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
