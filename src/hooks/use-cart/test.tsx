@@ -13,7 +13,7 @@ describe('useCart()', () => {
   })
   it('should return items and its info if there are any in the cart', async () => {
     const wrapper = ({ children }: CartProviderProps) => (
-      <MockedProvider mocks={[gamesMock]}>
+      <MockedProvider showWarnings={false} mocks={[gamesMock]}>
         <CartProvider>{children}</CartProvider>
       </MockedProvider>
     )
@@ -37,7 +37,7 @@ describe('useCart()', () => {
 
   it('should return true/false if the item is already in the cart', () => {
     const wrapper = ({ children }: CartProviderProps) => (
-      <MockedProvider mocks={[gamesMock]}>
+      <MockedProvider showWarnings={false} mocks={[gamesMock]}>
         <CartProvider>{children}</CartProvider>
       </MockedProvider>
     )
@@ -54,7 +54,7 @@ describe('useCart()', () => {
 
   it('should add item in the cart', () => {
     const wrapper = ({ children }: CartProviderProps) => (
-      <MockedProvider mocks={[gamesMock]}>
+      <MockedProvider showWarnings={false} mocks={[gamesMock]}>
         <CartProvider>{children}</CartProvider>
       </MockedProvider>
     )
@@ -75,7 +75,7 @@ describe('useCart()', () => {
 
   it('should remove an item from the cart', () => {
     const wrapper = ({ children }: CartProviderProps) => (
-      <MockedProvider mocks={[gamesMock]}>
+      <MockedProvider showWarnings={false} mocks={[gamesMock]}>
         <CartProvider>{children}</CartProvider>
       </MockedProvider>
     )
@@ -96,7 +96,7 @@ describe('useCart()', () => {
 
   it('should clear the cart', () => {
     const wrapper = ({ children }: CartProviderProps) => (
-      <MockedProvider mocks={[gamesMock]}>
+      <MockedProvider showWarnings={false} mocks={[gamesMock]}>
         <CartProvider>{children}</CartProvider>
       </MockedProvider>
     )
