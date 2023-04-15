@@ -87,16 +87,16 @@ export type Highlight = {
   alignment?: Aligment
 }
 
-export type Seciton = {
+export type Section = {
   title: string
   highlight?: Highlight
   games?: Game[]
 }
 
-export type PopularGamesQuery = Seciton
-export type NewGamesQuery = Seciton
-export type FreeGamesQuery = Seciton
-export type UpcomingGamesQuery = Seciton
+export type PopularGamesQuery = Section
+export type NewGamesQuery = Section
+export type FreeGamesQuery = Section
+export type UpcomingGamesQuery = Section
 
 export type QueryHomeQueryVariables = { date: string }
 
@@ -114,8 +114,8 @@ export type QueryHomeQuery = {
 }
 
 export type RecommendedSection = Pick<
-  Seciton,
-  Exclude<keyof Seciton, 'title'>
+  Section,
+  Exclude<keyof Section, 'title'>
 > & { title?: string }
 
 export type QueryRecommendedQuery = {
@@ -128,7 +128,7 @@ export type QueryUpcomingQueryVariables = { date: string }
 
 export type QueryUpcomingQuery = {
   upcomingGames: Game[]
-  showCase: { upcomingHighlight: Pick<Seciton, 'title' | 'highlight'> }
+  showCase: { upcomingHighlight: Pick<Section, 'title' | 'highlight'> }
 }
 
 export type QueryProfileMeQuery = {
@@ -139,7 +139,7 @@ export type QueryProfileMeQuery = {
 }
 
 export type QueryWishlistQueryVariables = {
-  where: { user: { email: string } }
+  identifier: string
 }
 
 export type QueryWishlistQuery = {
@@ -175,7 +175,7 @@ export type Wishlist = {
 
 export type CreateWishlistInput = {
   data: {
-    games: Partial<Game>[]
+    games: string[]
   }
 }
 
@@ -183,17 +183,28 @@ export type MutationCreateWishlistVariables = {
   input: CreateWishlistInput
 }
 
+export type WishlistMutationResponse = {
+  wishlist: {
+    id: string
+    user: {
+      id: string
+      username: string
+    }
+    games: Game[]
+  }
+}
+
 export type MutationCreateWishListMutation = {
-  wishlist: Wishlist
+  createWishlist: WishlistMutationResponse
 }
 
 export type UpdateWishListInput = {
   input: {
     where: {
-      id: number | string
+      id: string
     }
     data: {
-      games: Partial<Game>[]
+      games: string[]
     }
   }
 }
@@ -202,4 +213,9 @@ export type MutationUpdateWishlistVariables = {
   input: UpdateWishListInput
 }
 
-export type MutationUpdateWishListMutation = MutationCreateWishListMutation
+export type MutationUpdateWishListMutation = Pick<
+  MutationCreateWishListMutation,
+  Exclude<keyof MutationCreateWishListMutation, 'createWishlist'>
+> & {
+  updateWishlist: WishlistMutationResponse
+}
