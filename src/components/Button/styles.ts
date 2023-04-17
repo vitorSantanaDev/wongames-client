@@ -63,6 +63,10 @@ export const Wrapper = styled.button<WrapperProps>`
     align-items: center;
     justify-content: center;
 
+    &:focus {
+      outline: 1px dashed currentColor;
+    }
+
     &:hover {
       background: ${!minimal
         ? 'linear-gradient(180deg, #e35565 0%, #d958a6 50%)'
