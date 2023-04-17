@@ -131,8 +131,13 @@ export type QueryUpcomingQuery = {
   showCase: { upcomingHighlight: Pick<Section, 'title' | 'highlight'> }
 }
 
+export type QueryProfileMeQueryVariables = {
+  identifier: string
+}
+
 export type QueryProfileMeQuery = {
-  me: {
+  user: {
+    id: string
     username: string
     email: string
   }
