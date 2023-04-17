@@ -1,3 +1,4 @@
+import 'session.mock'
 import 'match-media-mock'
 import { render } from 'utils/test-utils'
 

@@ -29,6 +29,10 @@ exports[`<FormProfile /> should render the profile form 1`] = `
   color: #F231A5;
 }
 
+.c6:focus {
+  outline: 1px dashed currentColor;
+}
+
 .c6:hover {
   background: none;
 }
@@ -61,6 +65,10 @@ exports[`<FormProfile /> should render the profile form 1`] = `
   height: 5rem;
   font-size: 1.6rem;
   padding: 0.8rem 4.8rem;
+}
+
+.c7:focus {
+  outline: 1px dashed currentColor;
 }
 
 .c7:hover {
