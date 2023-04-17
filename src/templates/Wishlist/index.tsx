@@ -9,22 +9,29 @@ import { Container } from 'components/Container'
 
 import { WishlistProps } from './types'
 import Empty from 'components/Empty'
+import { useWishlist } from 'hooks/use-wishlist'
+import Loading from 'components/Loading'
+import { LoadingWrapper } from 'components/LoadingWrapper'
 
 const Wishlist = ({
-  games,
   recommendedGames,
   recommendedHighlight,
   recommendTitle
 }: WishlistProps) => {
+  const { items, loading } = useWishlist()
   return (
     <Base>
       <Container>
         <Heading lineLeft lineColor="secondary">
           Wishlist
         </Heading>
-        {!!games && games.length ? (
+        {loading ? (
+          <LoadingWrapper>
+            <Loading />
+          </LoadingWrapper>
+        ) : items.length >= 1 ? (
           <Grid>
-            {games.map((game, index) => (
+            {items.map((game, index) => (
               <GameCard key={`wishlist-${game.title}-${index}`} {...game} />
             ))}
           </Grid>
