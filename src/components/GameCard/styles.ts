@@ -66,7 +66,7 @@ export const Developer = styled.h4`
 
 export const FavButton = styled.div`
   ${({ theme }) => css`
-    right: 0;
+    right: -1rem;
     top: -0.5rem;
     cursor: pointer;
     position: absolute;

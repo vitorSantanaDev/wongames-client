@@ -1,5 +1,7 @@
+import 'session.mock'
+
 import theme from 'styles/theme'
-import { fireEvent, render, screen } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 
 import GameCard from '.'
 
@@ -37,7 +39,6 @@ describe('<GameCard />', () => {
       `/game/${props.slug}`
     )
 
-    expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
     expect(container.firstChild).toMatchSnapshot()
   })
 
@@ -67,24 +68,6 @@ describe('<GameCard />', () => {
     const promotionalPriceIsLessThanPrice = props.price > 14
 
     expect(promotionalPriceIsLessThanPrice).toEqual(true)
-  })
-
-  it('should render a filled favorite icon when favorite is true', () => {
-    render(<GameCard promotionalPrice={14} {...props} favorite />)
-
-    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
-  })
-
-  it('should call onFav method when favorite is clicked', () => {
-    const onFav = jest.fn()
-
-    render(
-      <GameCard promotionalPrice={14} {...props} favorite onFavorite={onFav} />
-    )
-
-    fireEvent.click(screen.getAllByRole('button')[0])
-    expect(onFav).toBeCalled()
-    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
   })
 
   it('should render a Ribbon', () => {

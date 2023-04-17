@@ -8,8 +8,6 @@ export type GameCardProps = {
   image: string
   price: number
   promotionalPrice?: number
-  favorite?: boolean
-  onFavorite?: () => void
   ribbon?: React.ReactNode
   ribbonSize?: RibbonSizes
   ribbonColor?: RibbonColors
