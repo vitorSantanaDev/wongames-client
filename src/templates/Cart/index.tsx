@@ -2,7 +2,7 @@ import Base from 'templates/Base'
 import Heading from 'components/Heading'
 import CartList from 'components/CartList'
 import ShowCase from 'components/ShowCase'
-import PaymentOptions from 'components/PaymentOptions'
+import PaymentForm from 'components/PaymentForm'
 
 import { Divider } from 'components/Divider'
 import { Container } from 'components/Container'
@@ -13,12 +13,10 @@ import * as S from './styles'
 import { Info } from '@styled-icons/material-outlined'
 
 const Cart = ({
-  cards,
   recommendedGames,
   recommendedTitle,
   recommendedHighlight
 }: CartProps) => {
-  const handlePayment = () => ({})
   return (
     <Base>
       <Container>
@@ -27,7 +25,7 @@ const Cart = ({
         </Heading>
         <S.Content>
           <CartList />
-          <PaymentOptions handlePayment={handlePayment} cards={cards} />
+          <PaymentForm />
         </S.Content>
         <S.Text>
           <Info size={18} /> Your purchase is protected by a secure connection

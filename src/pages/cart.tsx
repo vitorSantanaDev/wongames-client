@@ -1,8 +1,6 @@
 import { GetServerSidePropsContext } from 'next'
 import Cart from 'templates/Cart'
 
-import cardsMock from 'components/PaymentOptions/mock'
-
 import { CartProps } from 'templates/Cart/types'
 
 import { initializeApollo } from 'utils/apollo'
@@ -27,7 +25,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {
     props: {
       session,
-      cards: [...cardsMock],
       recommendedTitle: data.recommended.section.title,
       recommendedGames: gamesMapper(data.recommended.section.games!),
       recommendedHighlight: highlightMapper(data.recommended.section.highlight!)
