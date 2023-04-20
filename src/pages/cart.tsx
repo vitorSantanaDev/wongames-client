@@ -1,7 +1,6 @@
 import { GetServerSidePropsContext } from 'next'
 import Cart from 'templates/Cart'
 
-import cartListMock from 'components/CartList/mock'
 import cardsMock from 'components/PaymentOptions/mock'
 
 import { CartProps } from 'templates/Cart/types'
@@ -18,13 +17,6 @@ export default function CartPage(props: CartProps) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await protectedRoutes(context)
-  const totalPrice = cartListMock
-    .reduce(
-      (acc, item) =>
-        (acc += Number(item.price.replace('R$ ', '').replace(',', '.'))),
-      0
-    )
-    .toFixed(2)
 
   const apolloClient = initializeApollo(null, session)
 
@@ -36,8 +28,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     props: {
       session,
       cards: [...cardsMock],
-      total: `R$ ${totalPrice}`,
-      items: [...cartListMock],
       recommendedTitle: data.recommended.section.title,
       recommendedGames: gamesMapper(data.recommended.section.games!),
       recommendedHighlight: highlightMapper(data.recommended.section.highlight!)
