@@ -10,7 +10,7 @@ export default function SuccessPage(props: SuccessProps) {
   return <Success {...props} />
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
   const { data } = await apolloClient.query<QueryRecommendedQuery>({
@@ -18,11 +18,11 @@ export async function getServerSideProps() {
   })
 
   return {
-    revalidate: 60 * 60,
     props: {
       recommendedTitle: data.recommended.section.title,
       recommendedGames: gamesMapper(data.recommended.section.games!),
       recommendedHighlight: highlightMapper(data.recommended.section.highlight!)
-    }
+    },
+    revalidate: 60 * 60
   }
 }
