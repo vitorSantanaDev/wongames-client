@@ -1,3 +1,8 @@
+import { loadStripe } from '@stripe/stripe-js'
+import { Elements } from '@stripe/react-stripe-js'
+
+import { Info } from '@styled-icons/material-outlined'
+
 import Base from 'templates/Base'
 import Heading from 'components/Heading'
 import CartList from 'components/CartList'
@@ -10,9 +15,13 @@ import { Container } from 'components/Container'
 import { CartProps } from './types'
 
 import * as S from './styles'
-import { Info } from '@styled-icons/material-outlined'
+
+const stripe = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`, {
+  locale: 'en'
+})
 
 const Cart = ({
+  session,
   recommendedGames,
   recommendedTitle,
   recommendedHighlight
@@ -25,7 +34,9 @@ const Cart = ({
         </Heading>
         <S.Content>
           <CartList />
-          <PaymentForm />
+          <Elements stripe={stripe}>
+            <PaymentForm session={session} />
+          </Elements>
         </S.Content>
         <S.Text>
           <Info size={18} /> Your purchase is protected by a secure connection
