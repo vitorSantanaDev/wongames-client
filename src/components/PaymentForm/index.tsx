@@ -14,12 +14,15 @@ import Button from 'components/Button'
 import Heading from 'components/Heading'
 
 import * as S from './styles'
+import { useRouter } from 'next/router'
 
 const PaymentForm = ({ session }: PaymentFormProps) => {
   const { items } = useCart()
 
   const stripe = useStripe()
   const elements = useElements()
+
+  const { push } = useRouter()
 
   const [disabled, setDisabled] = useState(true)
   const [clientSecret, setClientSecret] = useState('')
@@ -60,6 +63,11 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     event.preventDefault()
     setIsLoading(true)
 
+    if (freeGames) {
+      push('/success')
+      return
+    }
+
     const payload = await stripe!.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements!.getElement(CardElement)!
@@ -74,8 +82,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
     setError(null)
     setIsLoading(false)
-
-    console.log('Your buy was a successful')
+    push('/success')
   }
 
   return (

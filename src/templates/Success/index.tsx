@@ -1,18 +1,25 @@
+import Link from 'next/link'
+import { useEffect } from 'react'
 import Base from 'templates/Base'
-import { Container } from 'components/Container'
+import { useCart } from 'hooks/use-cart'
 import { SuccessProps } from './types'
-import ShowCase from 'components/ShowCase'
+
 import Heading from 'components/Heading'
+import ShowCase from 'components/ShowCase'
+import { Container } from 'components/Container'
+import { Done } from '@styled-icons/material-outlined'
 
 import * as S from './styles'
-import { Done } from '@styled-icons/material-outlined'
-import Link from 'next/link'
 
 const Success = ({
   recommendedGames,
   recommendedTitle,
   recommendedHighlight
 }: SuccessProps) => {
+  const { clearCart } = useCart()
+
+  useEffect(clearCart, [clearCart])
+
   return (
     <Base>
       <S.Wrapper>
