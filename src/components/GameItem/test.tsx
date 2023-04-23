@@ -64,7 +64,9 @@ describe('<GameItem />', () => {
     }
     render(<GameItem {...props} paymentInfo={paymentInfo} />)
 
-    const flagImage = screen.getByRole('img', { name: paymentInfo.flag })
+    const flagImage = screen.getByRole('img', {
+      name: paymentInfo.flag as string
+    })
     expect(flagImage).toHaveAttribute('src', paymentInfo.image)
 
     const cardNumber = screen.getByText(paymentInfo.number)
@@ -72,5 +74,16 @@ describe('<GameItem />', () => {
 
     const purchasedDate = screen.getByText(paymentInfo.purchasedDate)
     expect(purchasedDate).toBeInTheDocument()
+  })
+
+  it('should render free game theres no payment info', () => {
+    const paymentInfo: PaymentInfoProps = {
+      flag: null,
+      image: null,
+      number: 'Free Game',
+      purchasedDate: 'Purchased made on 07/20/2023'
+    }
+    render(<GameItem {...props} paymentInfo={paymentInfo} />)
+    expect(screen.getByText(/free game/i)).toBeInTheDocument()
   })
 })

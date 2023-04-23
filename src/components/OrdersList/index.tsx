@@ -1,10 +1,10 @@
 import Heading from 'components/Heading'
 import GameItem from 'components/GameItem'
 
+import Empty from 'components/Empty'
 import { OrdersListProps } from './types'
 
 import * as S from './styles'
-import Empty from 'components/Empty'
 
 const OrdersList = ({ items }: OrdersListProps) => (
   <S.Wrapper>
@@ -12,9 +12,15 @@ const OrdersList = ({ items }: OrdersListProps) => (
       My orders
     </Heading>
     {items?.length ? (
-      items.map((item, index) => (
-        <GameItem key={`${item.title}-${index}`} {...item} />
-      ))
+      items.map((order, index) => {
+        return order.games.map((game) => (
+          <GameItem
+            key={`${order.id}-${index}`}
+            {...game}
+            paymentInfo={order.paymentInfo}
+          />
+        ))
+      })
     ) : (
       <Empty
         title="You have no orders yet"

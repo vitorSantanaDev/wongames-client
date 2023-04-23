@@ -1,8 +1,8 @@
+import { useCart } from 'hooks/use-cart'
 import { Download } from '@styled-icons/boxicons-solid'
 import { GameItemProps } from './types'
 
 import * as S from './styles'
-import { useCart } from 'hooks/use-cart'
 
 const GameItem = ({
   id,
@@ -46,8 +46,11 @@ const GameItem = ({
           <div>{paymentInfo.purchasedDate}</div>
           <S.CardInfo>
             <span>{paymentInfo.number}</span>
-            {/*eslint-disable-next-line @next/next/no-img-element*/}
-            <img src={paymentInfo.image} alt={paymentInfo.flag} />
+
+            {paymentInfo.image && paymentInfo.flag ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={paymentInfo.image} alt={paymentInfo.flag} />
+            ) : null}
           </S.CardInfo>
         </S.PaymentContent>
       )}

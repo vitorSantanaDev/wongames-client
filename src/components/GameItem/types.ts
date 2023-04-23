@@ -8,8 +8,8 @@ export type GameItemProps = {
 }
 
 export type PaymentInfoProps = {
-  flag: string
-  image: string
+  flag: string | null
+  image: string | null
   number: string
   purchasedDate: string
 }
