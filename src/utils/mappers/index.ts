@@ -1,4 +1,4 @@
-import { Banner, Game, Highlight } from 'graphql/types/schema'
+import { Banner, Game, Highlight, Order } from 'graphql/types/schema'
 import formatPrice from 'utils/formatPrice'
 
 export const bannersMapper = (banners: Banner[]) => {
@@ -49,5 +49,30 @@ export const cartItemsMapper = (games: Game[]) => {
     title: game.name,
     price: formatPrice(game.price),
     img: `http://localhost:1337${game.cover?.url}`
+  }))
+}
+
+export const ordersMapper = (orders: Order[]) => {
+  return orders.map((order) => ({
+    id: order.id,
+    paymentInfo: {
+      flag: order.card_brand,
+      image: order.card_brand ? `/img/cards/${order.card_brand}.png` : null,
+      number: order.card_last4
+        ? `**** **** **** ${order.card_last4}`
+        : 'Free Game',
+      purchaseDate: `Purchase made on ${new Intl.DateTimeFormat('en-US', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      }).format(new Date(order.created_at))}`
+    },
+    games: order.games.map((game) => ({
+      id: game.id,
+      title: game.name,
+      downloadLink: 'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
+      img: `http://localhost:1337${game.cover?.url}`,
+      price: formatPrice(game.price)
+    }))
   }))
 }
