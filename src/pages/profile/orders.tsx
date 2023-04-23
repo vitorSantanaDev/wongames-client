@@ -31,7 +31,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { data } = await apolloClient.query<
     QueryOrdersQuery,
     QueryOrdersQueryVariables
-  >({ query: QUERY_ORDERS, variables: { identifier: session?.id as string } })
+  >({
+    query: QUERY_ORDERS,
+    variables: { identifier: session?.id as string },
+    fetchPolicy: 'no-cache'
+  })
 
   return {
     props: {
