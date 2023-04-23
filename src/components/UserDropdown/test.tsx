@@ -6,6 +6,10 @@ import { UserDropdownProps } from './types'
 
 const props: UserDropdownProps = { username: 'Vitor' }
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+useRouter.mockImplementation(() => ({ push: jest.fn() }))
+
 describe('<UserDropdown />', () => {
   it('should render the username', () => {
     const { container } = render(<UserDropdown {...props} />)
