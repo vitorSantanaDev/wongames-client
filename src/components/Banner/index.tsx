@@ -3,6 +3,7 @@ import Ribbon from 'components/Ribbon'
 import * as S from './styles'
 
 import { BannerProps } from './types'
+import Image from 'next/image'
 
 const Banner = ({
   img,
@@ -20,7 +21,9 @@ const Banner = ({
         {ribbon}
       </Ribbon>
     )}
-    <S.Image src={img} role="img" aria-label={title} />
+    <S.ImageWrapper>
+      <Image src={img} alt={title} layout="fill" objectFit="cover" />
+    </S.ImageWrapper>
     <S.Caption>
       <S.Title>{title}</S.Title>
       <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />

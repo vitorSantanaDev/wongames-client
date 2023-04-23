@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 import formatPrice from 'utils/formatPrice'
 import { GameCardProps } from './types'
@@ -29,9 +30,7 @@ const GameCard = ({
     )}
     <Link href={`/game/${slug}`} passHref>
       <S.ImageBox>
-        {/* temporarily */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={image} alt={title} />
+        <Image src={image} alt={title} layout="fill" objectFit="cover" />
       </S.ImageBox>
     </Link>
     <S.Content>

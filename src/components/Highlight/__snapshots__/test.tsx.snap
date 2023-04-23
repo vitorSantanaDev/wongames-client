@@ -38,9 +38,6 @@ exports[`<Highlight /> should render headings and button 1`] = `
 .c0 {
   position: relative;
   height: 23rem;
-  background-size: cover;
-  background-position: center center;
-  background-image: url(/img/read-dead-img.png);
   display: grid;
   grid-template-columns: 1.3fr 2fr;
   grid-template-areas: 'floatImage content';
@@ -48,6 +45,11 @@ exports[`<Highlight /> should render headings and button 1`] = `
 
 .c0 .c1 {
   text-align: right;
+}
+
+.c0 img {
+  position: absolute;
+  object-fit: cover;
 }
 
 .c0::after {
@@ -108,6 +110,11 @@ exports[`<Highlight /> should render headings and button 1`] = `
 <section
   class="c0"
 >
+  <img
+    alt="Heading 1"
+    layout="fill"
+    src="/img/read-dead-img.png"
+  />
   <div
     class="c1 c2"
   >

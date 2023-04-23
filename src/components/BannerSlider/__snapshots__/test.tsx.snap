@@ -53,6 +53,7 @@ exports[`<BannerSlider /> should render vertical slider 1`] = `
   align-items: center;
   font-weight: 600;
   color: #FAFAFA;
+  z-index: 10;
 }
 
 .c5::before {
@@ -84,19 +85,8 @@ exports[`<BannerSlider /> should render vertical slider 1`] = `
 .c6 {
   width: 100%;
   height: 23rem;
+  position: relative;
   background-color: #EAEAEA;
-  background-size: cover;
-  background-image: url(https://source.unsplash.com/user/willianjusten/1042x580);
-  background-position: center center;
-}
-
-.c11 {
-  width: 100%;
-  height: 23rem;
-  background-color: #EAEAEA;
-  background-size: cover;
-  background-image: url(https://source.unsplash.com/user/willianjusten/1042x582);
-  background-position: center center;
 }
 
 .c7 {
@@ -303,12 +293,6 @@ exports[`<BannerSlider /> should render vertical slider 1`] = `
 }
 
 @media (min-width:768px) {
-  .c11 {
-    height: 58rem;
-  }
-}
-
-@media (min-width:768px) {
   .c7 {
     border-radius: 0 0 0.4rem 0.4rem;
     padding: 4.0rem;
@@ -388,11 +372,14 @@ exports[`<BannerSlider /> should render vertical slider 1`] = `
                   Bestselling
                 </div>
                 <div
-                  aria-label="Defy death 1"
                   class="c6"
-                  role="img"
-                  src="https://source.unsplash.com/user/willianjusten/1042x580"
-                />
+                >
+                  <img
+                    alt="Defy death 1"
+                    layout="fill"
+                    src="https://source.unsplash.com/user/willianjusten/1042x580"
+                  />
+                </div>
                 <div
                   class="c7"
                 >
@@ -436,11 +423,14 @@ exports[`<BannerSlider /> should render vertical slider 1`] = `
                 class="c2 c3"
               >
                 <div
-                  aria-label="Defy death 2"
-                  class="c11"
-                  role="img"
-                  src="https://source.unsplash.com/user/willianjusten/1042x582"
-                />
+                  class="c6"
+                >
+                  <img
+                    alt="Defy death 2"
+                    layout="fill"
+                    src="https://source.unsplash.com/user/willianjusten/1042x582"
+                  />
+                </div>
                 <div
                   class="c7"
                 >

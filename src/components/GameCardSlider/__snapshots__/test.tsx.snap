@@ -219,7 +219,8 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
 
 .c4 {
   width: 100%;
-  height: 14rem;
+  min-height: 14rem;
+  position: relative;
   -webkit-text-decoration: none;
   text-decoration: none;
   background: #f6f7f8;
@@ -227,12 +228,6 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
   background-size: 80rem 14rem;
   -webkit-animation: placeholderShimer 1s linear infinite forwards;
   animation: placeholderShimer 1s linear infinite forwards;
-}
-
-.c4 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .c6 {
@@ -452,6 +447,7 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                 >
                   <img
                     alt="Population Zero"
+                    layout="fill"
                     src="https://wallpaperaccess.com/full/625497.jpg"
                   />
                 </a>
@@ -546,6 +542,7 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                 >
                   <img
                     alt="Population Zero"
+                    layout="fill"
                     src="https://wallpaper.dog/large/10801367.jpg"
                   />
                 </a>
@@ -640,6 +637,7 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                 >
                   <img
                     alt="Population Zero"
+                    layout="fill"
                     src="https://images4.alphacoders.com/937/937844.png"
                   />
                 </a>
@@ -734,6 +732,7 @@ exports[`<GameCardSlider /> should render with 4 active items 1`] = `
                 >
                   <img
                     alt="Population Zero"
+                    layout="fill"
                     src="https://wallpaper.dog/large/10800384.jpg"
                   />
                 </a>
