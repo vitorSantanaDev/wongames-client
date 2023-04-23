@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FormEvent, useEffect, useState } from 'react'
 
@@ -123,9 +124,11 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
           )}
         </S.Body>
         <S.Footer>
-          <Button as="a" fullWidth minimal>
-            Continue shopping
-          </Button>
+          <Link href="/" passHref>
+            <Button as="a" fullWidth minimal>
+              Continue shopping
+            </Button>
+          </Link>
           <Button
             type="submit"
             disabled={!freeGames && (disabled || !!error)}
