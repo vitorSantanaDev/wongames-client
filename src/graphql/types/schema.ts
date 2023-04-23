@@ -151,6 +151,22 @@ export type QueryWishlistQuery = {
   wishlists: Wishlist[]
 }
 
+export type Order = {
+  id: string
+  created_at: string
+  card_brand: string | null
+  card_last4: string | null
+  games: Game[]
+}
+
+export type QueryOrdersQueryVariables = {
+  identifier: string
+}
+
+export type QueryOrdersQuery = {
+  orders: Order[]
+}
+
 //** =============** MUTATIONS TYPES **=================== **//
 
 export type UserRegisterInput = {
