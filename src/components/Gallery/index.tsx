@@ -9,6 +9,7 @@ import { GalleryProps } from './types'
 import { SliderSettings } from 'components/Slider/types'
 
 import * as S from './styles'
+import Image from 'next/image'
 
 export const SlickButtonFix = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -99,14 +100,16 @@ const Gallery = ({ items }: GalleryProps) => {
     <S.Wrapper>
       <Slider ref={sliderRef} settings={settings}>
         {items.map((item, index) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            onClick={() => handleOPenModal(index)}
-            key={`Thumb-${index}`}
-            role="button"
-            src={item.src}
-            alt={`Thumb - ${item.label}`}
-          />
+          <S.ItemWrapper key={`Thumb-${index}`}>
+            <Image
+              width={400}
+              height={223}
+              onClick={() => handleOPenModal(index)}
+              role="button"
+              src={item.src}
+              alt={`Thumb - ${item.label}`}
+            />
+          </S.ItemWrapper>
         ))}
       </Slider>
       <S.Modal
@@ -124,8 +127,13 @@ const Gallery = ({ items }: GalleryProps) => {
         <S.Content>
           <Slider ref={sliderRef} settings={modalSettings}>
             {items.map((item, index) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={item.src} key={`gallery-${index}`} alt={item.label} />
+              <Image
+                width={1200}
+                height={460}
+                src={item.src}
+                key={`gallery-${index}`}
+                alt={item.label}
+              />
             ))}
           </Slider>
         </S.Content>

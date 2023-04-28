@@ -56,6 +56,25 @@ const modalModifiers = {
   `
 }
 
+export const ItemWrapper = styled.div`
+  max-width: 40rem;
+  max-height: 22rem;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+`
+
+export const ImageWrapper = styled.div`
+  width: 120rem;
+  height: 46rem;
+
+  img {
+    object-fit: cover;
+  }
+`
+
 export const Modal = styled.div<ModalProps>`
   ${({ theme, isOpen }) => css`
     position: fixed;
