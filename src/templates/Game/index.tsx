@@ -1,5 +1,7 @@
 import Base from 'templates/Base'
 
+import { NextSeo } from 'next-seo'
+
 import Image from 'next/image'
 import Gallery from 'components/Gallery'
 import ShowCase from 'components/ShowCase'
@@ -15,6 +17,7 @@ import { GameProps } from './types'
 import * as S from './styles'
 
 const Game = ({
+  slug,
   cover,
   details,
   gallery,
@@ -27,6 +30,22 @@ const Game = ({
   upcommingHighlight
 }: GameProps) => (
   <Base>
+    <NextSeo
+      title={`${gameInfo.title} - Won Games`}
+      description={gameInfo.description}
+      canonical={`https://localhost:3000/game/${slug}`}
+      openGraph={{
+        url: `https://localhost:3000/game/${slug}`,
+        title: `${gameInfo.title} - Won Games`,
+        description: gameInfo.description,
+        images: [
+          {
+            url: cover,
+            alt: `${gameInfo.title}`
+          }
+        ]
+      }}
+    />
     <S.Cover>
       <Image src={cover} alt={gameInfo.title} layout="fill" />
     </S.Cover>
