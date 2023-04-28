@@ -19,6 +19,7 @@ import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from 'graphql/queries/games'
 import { QUERY_RECOMMENDED } from 'graphql/queries/recommended'
 import { gamesMapper, highlightMapper } from 'utils/mappers'
 import { QUERY_UPCOMING } from 'graphql/queries/upcomming'
+import { getImageUrl } from 'utils/getImageUrl'
 
 const apolloClient = initializeApollo()
 
@@ -77,9 +78,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     revalidate: 60,
     props: {
-      cover: `http://localhost:1337${game.cover?.url}`,
+      cover: `${getImageUrl(game.cover?.url)}`,
       gallery: game.gallery.map((image) => ({
-        src: `http://localhost:1337${image.src}`,
+        src: `${getImageUrl(image.src)}`,
         label: image.label
       })),
       gameInfo: {

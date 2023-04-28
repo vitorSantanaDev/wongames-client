@@ -1,10 +1,11 @@
 import { Banner, Game, Highlight, Order } from 'graphql/types/schema'
 import formatPrice from 'utils/formatPrice'
+import { getImageUrl } from 'utils/getImageUrl'
 
 export const bannersMapper = (banners: Banner[]) => {
   return banners.map((banner) => ({
     title: banner.title,
-    img: `http://localhost:1337${banner.image?.url}`,
+    img: `${getImageUrl(banner.image?.url)}`,
     buttonLabel: banner.button.label,
     buttonLink: banner.button.link,
     subtitle: banner.subtitle,
@@ -23,7 +24,7 @@ export const gamesMapper = (games: Game[]) => {
         slug: game.slug,
         title: game.name,
         developer: game.developers[0]?.name,
-        image: `http://localhost:1337${game.cover?.url}`,
+        image: `${getImageUrl(game.cover?.url)}`,
         price: game.price
       }))
     : []
@@ -37,8 +38,8 @@ export const highlightMapper = (highlight: Highlight) => {
       alignment: highlight.alignment,
       buttonLink: highlight.buttonLink,
       buttonLabel: highlight.buttonLabel,
-      floatImage: `http://localhost:1337${highlight.floatImage?.url}`,
-      backgroundImage: `http://localhost:1337${highlight.background?.url}`
+      floatImage: `${getImageUrl(highlight.floatImage?.url)}`,
+      backgroundImage: `${getImageUrl(highlight.background?.url)}`
     }
   )
 }
@@ -48,7 +49,7 @@ export const cartItemsMapper = (games: Game[]) => {
     id: game.id,
     title: game.name,
     price: formatPrice(game.price),
-    img: `http://localhost:1337${game.cover?.url}`
+    img: `${getImageUrl(game.cover?.url)}`
   }))
 }
 
@@ -71,7 +72,7 @@ export const ordersMapper = (orders: Order[]) => {
       id: game.id,
       title: game.name,
       downloadLink: 'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
-      img: `http://localhost:1337${game.cover?.url}`,
+      img: `${getImageUrl(game.cover?.url)}`,
       price: formatPrice(game.price)
     }))
   }))
