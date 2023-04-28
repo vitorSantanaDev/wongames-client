@@ -1,38 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Empty /> should render correctly 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 {
-  max-width: 100%;
-}
-
-.c2 {
-  color: #F231A5;
-  font-size: 2.8rem;
-}
-
 .c3 {
-  color: #FAFAFA;
-  font-weight: 300;
-  font-size: 1.8rem;
-  margin-bottom: 3.2rem;
-}
-
-.c4 {
   border: none;
   cursor: pointer;
   -webkit-text-decoration: none;
@@ -58,12 +27,39 @@ exports[`<Empty /> should render correctly 1`] = `
   padding: 0.8rem 3.2rem;
 }
 
-.c4:focus {
+.c3:focus {
   outline: 1px dashed currentColor;
 }
 
-.c4:hover {
+.c3:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  color: #F231A5;
+  font-size: 2.8rem;
+}
+
+.c2 {
+  color: #FAFAFA;
+  font-weight: 300;
+  font-size: 1.8rem;
+  margin-bottom: 3.2rem;
 }
 
 <div
@@ -71,21 +67,22 @@ exports[`<Empty /> should render correctly 1`] = `
 >
   <img
     alt="A gamer in a couch playing videogame"
-    class="c1"
+    height="285"
     src="/img/empty-placeholder.svg"
+    width="380"
   />
   <h2
-    class="c2"
+    class="c1"
   >
     A simple title
   </h2>
   <p
-    class="c3"
+    class="c2"
   >
     A simple description
   </p>
   <a
-    class="c4"
+    class="c3"
     href="/"
   >
     <span>

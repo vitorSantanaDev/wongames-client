@@ -10,7 +10,7 @@ describe('<Auth />', () => {
     )
 
     const logos = screen.getAllByRole('img', { name: /won games/i })
-    expect(logos).toHaveLength(2)
+    expect(logos).toHaveLength(3)
 
     const bannerHeading = screen.getByRole('heading', {
       name: /All your favorite games in one place/i

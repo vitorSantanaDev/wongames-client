@@ -1,12 +1,15 @@
 import { EmptyProps } from './types'
-
-import * as S from './styles'
 import Link from 'next/link'
 import Button from 'components/Button'
+import Image from 'next/image'
+
+import * as S from './styles'
 
 const Empty = ({ title, description, hasLink }: EmptyProps) => (
   <S.Wrapper>
-    <S.Image
+    <Image
+      width={380}
+      height={285}
       src="/img/empty-placeholder.svg"
       alt="A gamer in a couch playing videogame"
     />

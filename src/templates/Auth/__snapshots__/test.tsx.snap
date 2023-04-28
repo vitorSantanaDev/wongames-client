@@ -42,9 +42,6 @@ exports[`<Auth /> should render all components and children 1`] = `
 
 .c1 {
   position: relative;
-  background-size: cover;
-  background-position: center center;
-  background-image: url('/img/auth-bg.png');
   color: #FAFAFA;
   padding: 5.6rem 5.6rem 4.0rem;
 }
@@ -147,6 +144,11 @@ exports[`<Auth /> should render all components and children 1`] = `
   <div
     class="c1"
   >
+    <img
+      alt="Won Games Auth Page"
+      layout="fill"
+      src="/img/auth-bg.png"
+    />
     <div
       class="c2"
     >
