@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import * as HeadingStyles from 'components/Heading/styles'
 import media from 'styled-media-query'
+import { darken } from 'polished'
 
 export const Wrapper = styled.footer`
   ${() => css`
@@ -29,8 +30,8 @@ export const Column = styled.div`
     span {
       display: block;
       text-decoration: none;
-      color: ${theme.colors.gray};
-      font-size: ${theme.font.sizes.small};
+      color: ${darken(0.2, theme.colors.gray)};
+      font-size: ${theme.font.sizes.medium};
       margin-bottom: ${theme.spacings.xxsmall};
     }
     a:hover {
